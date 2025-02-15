@@ -5,9 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body> a
-    <script>
+<body>
+    <main>
+        <section class="fighter" style="justify-self: left;">
+            <div class="name-container">
+                <p>Fighter Name</p>
+                <input type="text" class="name-box">
+            </div>
+        </section>
 
-    </script>
+        <section class="fighter" style="justify-self: center;">
+            VS
+        </section>
+
+        <section class="fighter" style="justify-self: right;">
+            <div class="name-container">
+                <p>Fighter Name</p>
+                <input type="text" class="name-box">
+            </div>
+        </section>
+
+        <style>
+            main {
+                display: flex;
+                flex-direction: row;
+                align-items: top;
+                width: 100%;
+            }
+
+            .fighter {
+                width: 33%;
+            }
+
+            .name-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .name-box {
+                height: 1rem;
+                margin-left: 10px;
+            }
+        </style>
+    </main>
 </body>
 </html>
