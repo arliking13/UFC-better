@@ -12,6 +12,8 @@
                 <p>Fighter Name</p>
                 <input type="text" class="name-box">
             </div>
+            <button onclick="getFighter('left')">Get</button>
+            <p style="border: 1px solid black; height: 20rem;" id="fighter-details-left">dsfsdf</p>
         </section>
 
         <section class="fighter" style="justify-self: center;">
@@ -24,6 +26,17 @@
                 <input type="text" class="name-box">
             </div>
         </section>
+
+        <script>
+            function getFighter(side) {
+                if (side === 'left') {
+                    let name = document.getElementById("fighter-details-left").textContent;
+                    
+                }
+            }
+        </script>
+
+        <script src="../js/api.js"></script>
 
         <style>
             main {
