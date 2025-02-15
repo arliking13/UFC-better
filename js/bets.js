@@ -37,21 +37,4 @@ function loadBets() {
     let betList = document.getElementById("bet-list");
     let bets = JSON.parse(localStorage.getItem("bets")) || [];
 
-    if (bets.length === 0) {
-        betList.innerHTML = "<p>No bets placed yet.</p>";
-        return;
-    }
-
-    betList.innerHTML = "";
-    bets.forEach(bet => {
-        let div = document.createElement("div");
-        div.innerHTML = `<p>Bet: $${bet.amount} on ${bet.fighter} (${bet.fight})</p>`;
-        betList.appendChild(div);
-    });
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("bet-list")) {
-        loadBets();
-    }
-});
