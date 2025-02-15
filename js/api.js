@@ -23,7 +23,7 @@ async function getFighterByName(fighterName) {
             return null;
         }
     } catch (error) {
-        console.error('Error fetching fighter data:', error);
+        console.error('Error fetching fighter data: ', error);
         return null;
     }
 }
