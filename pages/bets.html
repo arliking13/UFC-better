@@ -10,17 +10,20 @@
         <section class="fighter" style="justify-self: left;">
             <div class="name-container">
                 <p>Fighter Name</p>
-                <input type="text" class="name-box">
+                <input type="text" class="name-box" id="left-name-box">
             </div>
             <button onclick="getFighter('left')">Get</button>
-            <p style="border: 1px solid black; height: 20rem;" id="fighter-details-left">dsfsdf</p>
+            <div class="fighter-details-container">
+                <img src="" id="fighter-details-img-left">
+                <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-left">dsfsdf</textarea>
+            </div>
         </section>
 
         <section class="fighter" style="justify-self: center;">
             VS
         </section>
 
-        <section class="fighter" style="justify-self: right;">
+        <section class="middle" style="justify-self: right;">
             <div class="name-container">
                 <p>Fighter Name</p>
                 <input type="text" class="name-box">
@@ -30,8 +33,28 @@
         <script>
             function getFighter(side) {
                 if (side === 'left') {
-                    let name = document.getElementById("fighter-details-left").textContent;
-                    
+                    let name = document.getElementById("left-name-box").value.trim();
+                    var details_box = document.getElementById("fighter-details-text-left");
+                    details_box.textContent = '';
+
+                    getFighterByName(name).then(fighter => {
+                        // handle fighter data
+                        if (fighter == null) {
+                            details_box.textContent = "Fighter Not Found";
+                        }
+                        // details of fighter
+                        document.getElementById("fighter-details-img-left").src = fighter['imgUrl'];
+                        
+                        details_box.textContent += fighter['name'] + ' (' + fighter['nickname'] + ')\n'; 
+                        details_box.textContent += 'Age: ' + fighter['age'] + '\n';
+                        details_box.textContent += 'Height: ' + fighter['height'] + ' inches\n';
+                        details_box.textContent += 'Weight: ' + fighter['weight'] + ' pounds\n';
+                        details_box.textContent += 'Category: ' + fighter['category'] + '\n';
+                        details_box.textContent += 'Reach: ' + fighter['reach'] + ' inches\n';
+                        details_box.textContent += 'Wins: ' + fighter['wins'] + '\n';
+                        details_box.textContent += 'Losses: ' + fighter['losses'] + '\n';
+                    })
+                    .catch(error => console.error("Error:", error));
                 }
             }
         </script>
@@ -47,7 +70,11 @@
             }
 
             .fighter {
-                width: 33%;
+                width: 40%;
+            }
+
+            .middle {
+                width: 20%;
             }
 
             .name-container {
@@ -59,6 +86,12 @@
             .name-box {
                 height: 1rem;
                 margin-left: 10px;
+            }
+
+            .fighter-details-text {
+                border: 1px solid black; 
+                height: 20rem;
+                width: 50%;
             }
         </style>
     </main>

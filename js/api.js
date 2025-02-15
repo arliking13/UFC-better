@@ -15,6 +15,7 @@ async function getFighterByName(fighterName) {
 
         if (fighter) {
             console.log(`Fighter found: ${fighter.name}`);
+            console.log(fighter);
             return fighter;
             // Process and display the fighter data as needed
         } else {
