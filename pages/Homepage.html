@@ -3,136 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Agreement</title>
+    <title>UFC Pixel Casino</title>
     <link href="https://fonts.cdnfonts.com/css/hiairport" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/hiairport');
         
         body {
-            font-family: 'HIAIRPORT FFM', sans-serif;
-            background-color: black;
-            color: white;
-            margin: 0;
+            font-family: 'HIAIRPORT FFMCOND', sans-serif;
+            background: url('path-to-pixel-art-background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .header, .footer, .sidebar, .main {
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, 0.5);
         }
         .header {
-            background: linear-gradient(to bottom, #A3141B, #E52125); /* Using red gradient from the image */
-            padding: 20px;
             text-align: center;
-            color: white;
-            font-family: 'HIAIRPORT FFMCOND', sans-serif;
             font-size: 24px;
-            position: relative;
+            font-family: 'HIAIRPORT FFM', sans-serif;
         }
-        .logo {
-            position: absolute;
-            top: 10px; /* Adjust these values to position the logo */
-            left: 10px; /* Adjust these values to position the logo */
-            height: 50px;
-            width: auto;
+        .main {
+            display: flex;
+            justify-content: space-between;
         }
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            font-family: 'HIAIRPORTARRIVAL', sans-serif;
+        .profile, .quick-links {
+            width: 200px;
         }
         .content {
-            clear: both;
-            padding-top: 20px;
+            flex-grow: 1;
+            padding: 10px;
         }
-        .navigation-bar {
-            background-color: goldenrod;
-            overflow: hidden;
-            font-family: 'HIAIRPORTDEPARTURE', sans-serif;
-        }
-        .navigation-bar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .navigation-bar a:hover {
-            background-color: red;
-            color: white;
-        }
-        .agree-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-        button.primary {
-            background-color: goldenrod;
-            color: black;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        button.primary:disabled {
-            background-color: #555;
-            color: white;
+        .pixel-art-icon {
+            width: 32px;
+            height: 32px;
         }
     </style>
 </head>
-<body>
+<body onload="loadProfile()">
     <div class="header">
-        <img src="C:/Gambling/Logo.png" alt="Logo" class="logo">
-        Terms and Conditions
+        <h1>UFC Pixel Casino</h1>
     </div>
-    <div class="navigation-bar">
-        <a href="#home">Home</a>
-        <a href="https://www.ufc.com/">UFC</a>
-        <a href="https://www.ufc.com/search?query=about%20community&referrerPageUrl=https://www.google.com/">Communities</a>
-    </div>
-    <div class="container">
+    <div class="main">
+        <div class="profile sidebar">
+            <img id="profile-avatar" alt="Pixel Avatar" class="pixel-art-icon">
+            <p id="profile-name"></p>
+            <p>Balance: $1000</p>
+        </div>
         <div class="content">
-            <h2>UFC Gambling Terms and Conditions</h2>
-            <p>Welcome to the UFC Pixel Casino! Please read these terms and conditions carefully before using our website or services. By accessing or using our site, you agree to be bound by these terms.</p>
-            
-            <h3>1. Eligibility</h3>
-            <p>You must be at least 18 years old to use our gambling services. By registering and using our services, you confirm that you meet this age requirement.</p>
-            
-            <h3>2. Account Registration</h3>
-            <p>To place bets and participate in gambling activities, you must create an account. You agree to provide accurate and complete information during the registration process and keep your account information up-to-date.</p>
-            
-            <h3>3. Responsible Gambling</h3>
-            <p>We promote responsible gambling and provide tools to help you manage your gambling activities. If you believe you have a gambling problem, please seek assistance from appropriate support organizations.</p>
-            
-            <h3>4. Placing Bets</h3>
-            <p>All bets must be placed through your registered account. Bets cannot be canceled or modified once placed. Please review your bet carefully before confirming.</p>
-            
-            <h3>5. Payment and Withdrawals</h3>
-            <p>We accept various payment methods for deposits and withdrawals. Withdrawals are subject to verification and may take up to 5 business days to process. We reserve the right to withhold payments in case of suspected fraud or breach of these terms.</p>
-            
-            <h3>6. Privacy</h3>
-            <p>We are committed to protecting your privacy. Please refer to our Privacy Policy for detailed information on how we collect, use, and protect your personal data.</p>
-            
-            <h3>7. Changes to Terms</h3>
-            <p>We reserve the right to modify these terms at any time. Any changes will be effective immediately upon posting on our website. It is your responsibility to review these terms regularly.</p>
-            
-            <h3>8. Contact Us</h3>
-            <p>If you have any questions or concerns about these terms, please contact us at support@ufcpixelcasino.com or call 123-456-7890.</p>
+            <h2>Welcome to UFC Pixel Casino!</h2>
+            <p><img src="path-to-pixelated-dice.png" alt="Pixelated Dice" class="pixel-art-icon"> Featured Games:</p>
+            <ul>
+                <li>UFC Game [Pixelated Thumbnail]</li>
+            </ul>
+            <h3>Promotions:</h3>
+            <p>50% Welcome Bonus!</p>
         </div>
-        <div class="agree-button">
-            <label>
-                <input type="checkbox" id="agreeCheckbox"> I agree to the terms and conditions
-            </label>
+        <div class="quick-links sidebar">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Upcoming UFC Fights</li>
+                <li>Top UFC Winners (Updated Daily)</li>
+                <li>Daily UFC Challenges</li>
+            </ul>
         </div>
-        <div class="agree-button">
-            <button class="primary" onclick="proceedToProfilePage()" disabled id="proceedButton">Proceed</button>
-        </div>
+    </div>
+    <div class="footer">
+        <h3>Contact Us:</h3>
+        <p>Email: support@ufcpixelcasino.com</p>
+        <p>Phone: 123-456-7890</p>
+        <p>
+            <img src="path-to-social-icon.png" alt="Social Icon" class="pixel-art-icon">
+            <img src="path-to-social-icon.png" alt="Social Icon" class="pixel-art-icon">
+            <img src="path-to-social-icon.png" alt="Social Icon" class="pixel-art-icon">
+        </p>
     </div>
 
     <script>
-        document.getElementById('agreeCheckbox').addEventListener('change', function() {
-            document.getElementById('proceedButton').disabled = !this.checked;
-        });
-
-        function proceedToProfilePage() {
-            window.location.href = 'Profile.html';
+        function loadProfile() {
+            const username = localStorage.getItem('username');
+            const avatar = localStorage.getItem('avatar');
+            document.getElementById('profile-name').textContent = `Name: ${username}`;
+            document.getElementById('profile-avatar').src = avatar;
         }
     </script>
 </body>
