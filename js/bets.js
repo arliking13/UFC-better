@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Places a bet and updates user balance
  */
@@ -37,7 +36,23 @@ function placeBet(fight, fighter) {
 function loadBets() {
     let betList = document.getElementById("bet-list");
     let bets = JSON.parse(localStorage.getItem("bets")) || [];
-=======
->>>>>>> 461db20e940428eb16376d3f39dde520a406acb4
 
+    if (bets.length === 0) {
+        betList.innerHTML = "<p>No bets placed yet.</p>";
+        return;
+    }
+
+    betList.innerHTML = "";
+    bets.forEach(bet => {
+        let div = document.createElement("div");
+        div.innerHTML = `<p>Bet: $${bet.amount} on ${bet.fighter} (${bet.fight})</p>`;
+        betList.appendChild(div);
+    });
 }
+
+// Load bets on the betting page
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById("bet-list")) {
+        loadBets();
+    }
+});

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
     console.log("UFC Pixel Casino Loaded");
 
@@ -24,11 +23,9 @@ function loadProfile() {
     const avatar = localStorage.getItem("avatar") || "default-avatar.png"; // Replace with actual default image
     let balance = localStorage.getItem("balance") || 1000; // Default balance if not set
 
-    // Update profile details
     document.getElementById("profile-name").textContent = `Name: ${username}`;
     document.getElementById("profile-avatar").src = avatar;
 
-    // Update balance if the element exists
     const balanceElement = document.getElementById("profile-balance");
     if (balanceElement) {
         balanceElement.textContent = `Balance: $${balance}`;
@@ -113,7 +110,6 @@ function placeBet(fight, fighter) {
 
     alert(`Bet placed: $${amount} on ${fighter}`);
 
-    // Update profile balance if on profile page
     const balanceElement = document.getElementById("profile-balance");
     if (balanceElement) {
         balanceElement.textContent = `Balance: $${balance}`;
@@ -146,6 +142,3 @@ document.addEventListener("DOMContentLoaded", function () {
         loadBets();
     }
 });
-=======
-console.log("hello")
->>>>>>> 461db20e940428eb16376d3f39dde520a406acb4
