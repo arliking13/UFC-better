@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Profile</title>
+    <style>
+        body {
+            font-family: 'MyPixelFont', sans-serif;
+            background: url('path-to-pixel-art-background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .profile-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .profile-header {
+            text-align: center;
+            font-size: 24px;
+        }
+        .profile-content {
+            margin: 20px 0;
+        }
+        .avatar-options img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            margin: 5px;
+        }
+        .avatar-options img.selected {
+            border-color: #fff;
+        }
+        .create-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Create Your Profile</h1>
+        </div>
+        <div class="profile-content">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username">
+        </div>
+        <div class="profile-content">
+            <label>Choose Avatar:</label>
+            <div class="avatar-options">
+                <img src="path-to-avatar1.png" alt="Avatar 1" onclick="selectAvatar(this)">
+                <img src="path-to-avatar2.png" alt="Avatar 2" onclick="selectAvatar(this)">
+                <img src="path-to-avatar3.png" alt="Avatar 3" onclick="selectAvatar(this)">
+                <!-- Add more avatar options as needed -->
+            </div>
+        </div>
+        <div class="create-button">
+            <button onclick="createProfile()">Create Profile</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedAvatar = '';
+
+        function selectAvatar(element) {
+            document.querySelectorAll('.avatar-options img').forEach(img => img.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedAvatar = element.src;
+        }
+
+        function createProfile() {
+            const username = document.getElementById('username').value;
+            if (username && selectedAvatar) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('avatar', selectedAvatar);
+                window.location.href = 'Homepage.html';
+            } else {
+                alert('Please enter a username and select an avatar.');
+            }
+        }
+    </script>
+</body>
+</html>

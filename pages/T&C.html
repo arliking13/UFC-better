@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Agreement</title>
+    <style>
+        body {
+            font-family: 'MyPixelFont', sans-serif;
+            background: url('path-to-pixel-art-background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .terms-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .terms-header {
+            text-align: center;
+            font-size: 24px;
+        }
+        .terms-content {
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 20px 0;
+        }
+        .agree-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="terms-container">
+        <div class="terms-header">
+            <h1>Terms and Agreement</h1>
+        </div>
+        <div class="terms-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat orci sit amet nulla bibendum, nec tincidunt elit ultrices. Integer volutpat turpis nec venenatis malesuada. Cras viverra lacus vitae felis cursus, in fermentum arcu tempus. Praesent blandit vehicula ligula, sed facilisis risus tristique et. Morbi suscipit orci a erat bibendum, vel molestie tortor dignissim.</p>
+            <!-- Add more terms content here -->
+        </div>
+        <div class="agree-button">
+            <label>
+                <input type="checkbox" id="agreeCheckbox"> I agree to the terms and conditions
+            </label>
+        </div>
+        <div class="agree-button">
+            <button onclick="proceedToProfilePage()" disabled id="proceedButton">Proceed</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('agreeCheckbox').addEventListener('change', function() {
+            document.getElementById('proceedButton').disabled = !this.checked;
+        });
+
+        function proceedToProfilePage() {
+            window.location.href = 'Profile.html';
+        }
+    </script>
+</body>
+</html>
