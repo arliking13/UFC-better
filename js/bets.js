@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Places a bet and updates user balance
  */
@@ -36,5 +37,7 @@ function placeBet(fight, fighter) {
 function loadBets() {
     let betList = document.getElementById("bet-list");
     let bets = JSON.parse(localStorage.getItem("bets")) || [];
+=======
+>>>>>>> 461db20e940428eb16376d3f39dde520a406acb4
 
 }

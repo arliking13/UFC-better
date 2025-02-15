@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
     console.log("UFC Pixel Casino Loaded");
 
@@ -145,3 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
         loadBets();
     }
 });
+=======
+console.log("hello")
+>>>>>>> 461db20e940428eb16376d3f39dde520a406acb4
