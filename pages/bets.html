@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bets.css">
+    <link href="https://fonts.cdnfonts.com/css/hiairport" rel="stylesheet">
+                
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/hiairport');
+        body, p, h1, span, input, textarea, button {
+            font-family: 'HIAIRPORT FFM', sans-serif;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
@@ -200,11 +208,6 @@
 
                 console.log("Left Odds:", odds['left_fighter_chance']);
                 console.log("Right Odds:", odds['right_fighter_chance']);
-
-                let probability = side === "left" ? odds['left_fighter_chance'] : odds['right_fighter_chance'];
-                let opponent_probability = side === "left" ? odds['right_fighter_chance'] : odds['left_fighter_chance'];
-
-                let profit = 0;
 
                 if (betting_for === side) {
                     // ✅ Winning Bet: Pays based on fair inverse probability
