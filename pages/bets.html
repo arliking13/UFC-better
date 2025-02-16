@@ -49,7 +49,7 @@
     <header>
         <nav class="navigation-bar">
             <div class="profile-section">
-                <img id="nav-profile-avatar" alt="Profile Avatar" class="pixel-art-icon">
+                <img id="nav-profile-avatar" alt="Profile Avatar" class="pixel-art-icon" width="25px" height="25px">
                 <span id="nav-profile-name"></span>
                 <a href="fights.html">Fights</a>
                 <a href="Homepage.html">Home</a>
@@ -119,6 +119,7 @@
         <script src="../js/script.js"></script>        
         <script>
             document.getElementById("nav-profile-name").textContent = user_data.username;
+            document.getElementById("nav-profile-avatar").src = user_data.avatar_path;
 
             let temp_fighter_left = null;
             let temp_fighter_right = null;

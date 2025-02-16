@@ -97,12 +97,12 @@
         <div class="form-group">
             <label>Choose Avatar:</label>
             <div class="avatar-options">
-                <img src="C:/Gambling/White_Female.png" alt="Avatar 1" onclick="selectAvatar(this)">
-                <img src="C:/Gambling/Brown_Female.png" alt="Avatar 2" onclick="selectAvatar(this)">
-                <img src="C:/Gambling/Black_Female.png" alt="Avatar 3" onclick="selectAvatar(this)">
-                <img src="C:/Gambling/White_Male.png" alt="Avatar 4" onclick="selectAvatar(this)">
-                <img src="C:/Gambling/Brown_Male.png" alt="Avatar 5" onclick="selectAvatar(this)">
-                <img src="C:/Gambling/Black_Male.png" alt="Avatar 6" onclick="selectAvatar(this)">
+                <img src="../assets/White_Female.png" alt="Avatar 1" onclick="selectAvatar(this)">
+                <img src="../assets/Brown_Female.png" alt="Avatar 2" onclick="selectAvatar(this)">
+                <img src="../assets/Black_Female.png" alt="Avatar 3" onclick="selectAvatar(this)">
+                <img src="../assets/White_Male.png" alt="Avatar 4" onclick="selectAvatar(this)">
+                <img src="../assets/Brown_Male.png" alt="Avatar 5" onclick="selectAvatar(this)">
+                <img src="../assets/Black_Male.png" alt="Avatar 6" onclick="selectAvatar(this)">
             </div>
         </div>
         <div class="create-button">
@@ -114,10 +114,11 @@
     <script>
         let selectedAvatar = '';
 
-        function selectAvatar(element) {
-            document.querySelectorAll('.avatar-options img').forEach(img => img.classList.remove('selected'));
-            element.classList.add('selected');
-            selectedAvatar = element.src;
+        function loadProfile() {
+            const username = localStorage.getItem('username');
+            const avatar = localStorage.getItem('avatar');
+            document.getElementById('profile-name').textContent = "Name: " + user_data.username;
+            document.getElementById('profile-avatar').src = user_data.avatar_path;
         }
 
         function createProfile() {

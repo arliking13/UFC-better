@@ -10,7 +10,7 @@
         
         body {
             font-family: 'HIAIRPORT FFMCOND', sans-serif;
-            background: url('C:/Gambling/Retro.gif') no-repeat center center fixed; /* Add your GIF path here */
+            background: url('../assets/Retro.gif') no-repeat center center fixed; /* Add your GIF path here */
             background-size: cover;
             color: #FFFFFF; /* White text */
             margin: 0;
@@ -83,6 +83,7 @@
     </style>
 </head>
 <body onload="loadProfile()">
+    <script src="../js/script.js"></script>
     <div class="header">
         <h1>UFC Bet Tracker</h1>
     </div>
@@ -90,16 +91,14 @@
         <div class="profile sidebar">
             <img id="profile-avatar" alt="Pixel Avatar" class="pixel-art-icon">
             <p id="profile-name"></p>
-            <p>Net-Profit: $1000</p>
+            <p id="net-profit-text"></p>
         </div>
         <div class="content">
             <h2>Welcome to UFC Bet Tracker!</h2>
-            <p><img src="C:/Gambling/Dice.gif" alt="Pixelated Dice" class="dice-icon"> Featured Games:</p>
+            <p><img src="../assets/Dice.gif" alt="Pixelated Dice" class="dice-icon"> Featured Games:</p>
             <ul>
                 <li><a href="bets.html" style="color: white; text-decoration: none;">UFC Bets</a></li> <!-- Add the link to UFC Bets -->
             </ul>
-            <h3>Promotions:</h3>
-            <p>50% Welcome Bonus!</p>
         </div>
         <div class="quick-links sidebar">
             <h3>Quick Links</h3>
@@ -115,11 +114,14 @@
             <p>Phone: 123-456-7890</p>
         </div>
         <div class="social-media">
-            <img src="C:/Gambling/Social_Logo.gif" alt="Social Icon">
+            <img src="../assets/Social_Logo.gif" alt="Social Icon">
         </div>
     </div>
 
     <script>
+        document.getElementById("profile-name").textContent = user_data.username;
+        document.getElementById("net-profit-text").textContent = "Net Profit: $" + parseFloat(user_data.net_profit).toFixed(2);
+
         function loadProfile() {
             const username = localStorage.getItem('username');
             const avatar = localStorage.getItem('avatar');
