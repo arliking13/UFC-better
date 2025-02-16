@@ -334,17 +334,35 @@ button:hover {
     gap: 20px;
 }
 
-/* Fighter Image */
+/* Fighter Image - Default */
 .fighter-details-container img {
     width: 220px;
     height: 335px;
     border-radius: 10px;
-    border: 1px solid #fff;
+    border: 1px solid #ffcc00;  /* ✅ Thin golden border */
     object-fit: cover;
     display: block;
+    background-color: #ffffff; /* ✅ White background */
     
-    /* ✅ Set background color to pure white */
-    background-color: #ffffff; /* White */
+    /* ✅ Smooth Transition */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* ✅ Apply fade-out when the image source changes */
+.fighter-details-container img[data-new-img] {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards; /* ✅ Smoothly fade in new image */
+}
+
+/* ✅ Keyframe Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 
