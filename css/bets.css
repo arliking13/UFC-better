@@ -12,8 +12,8 @@ main {
     justify-content: space-between;
     align-items: flex-start;  
     width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
+    max-width: 1300px; /* Increased width */
+    margin: 50px auto; /* More top margin */
 }
 
 /* ===== Left and Right Fighter Sections ===== */
@@ -23,48 +23,152 @@ main {
     flex-direction: column;
     align-items: center;  
     text-align: center;
+    gap: 25px; /* Increased spacing */
 }
 
-/* ===== Middle Section (VS Text) ===== */
+/* ===== Define Variables for Position Control ===== */
+:root {
+    --middle-margin-top: -75px;   /* Adjust middle section position */
+    --middle-margin-left: 0px;    /* Move left/right */
+
+    --vs-text-margin-bottom: 15px; /* Adjust VS text spacing */
+
+    --bet-container-margin-top: 0px;  /* Adjust bet container position */
+    --bet-container-gap: 10px;        /* Adjust gap between "Bet: $" and input */
+
+    --win-button-margin-top: 10px;  /* Move win buttons up/down */
+    --win-button-gap: 20px;         /* Adjust space between win buttons */
+
+    --odds-container-margin-top: 15px; /* Adjust odds section positioning */
+    --odds-container-gap: 10px;        /* Space between odds elements */
+
+    --odd-text-padding-x: 30px;   /* Adjust padding inside the odds section */
+}
+
+/* ===== Middle Section (VS, Bet, Buttons, Odds) ===== */
 .middle {
     width: 20%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.middle h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-/* ===== Fighter Name Input and Label ===== */
-.name-container {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
-}
-
-.name-container p {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.name-box {
-    padding: 5px;
-    width: 150px;
+    justify-content: center;
     text-align: center;
-    border-radius: 10px;  /* ✅ Rounded edges for input fields */
+    gap: var(--middle-margin-top);
+    margin-top: var(--middle-margin-top);
+    margin-left: var(--middle-margin-left);
+    position: relative;
+}
+
+/* VS Text */
+.VS-text {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: var(--vs-text-margin-bottom);
+}
+
+/* Bet Section */
+.bet-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--bet-container-gap);
+    margin-top: var(--bet-container-margin-top);
+}
+
+/* Bet Input */
+.bet-box {
+    padding: 10px;
+    width: 120px;
+    text-align: center;
+    border-radius: 10px;
     border: 1px solid #fff;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
 }
 
-/* ===== "Get" Button Styles (Rounded Corners) ===== */
+/* Win Buttons */
+.win-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--win-button-gap);
+    margin-top: var(--win-button-margin-top);
+}
+
+.win-button {
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #ffcc00;
+    background-color: rgba(255, 204, 0, 0.8);
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out, transform 0.1s;
+    border-radius: 10px;
+}
+
+.win-button:hover {
+    background-color: rgba(255, 204, 0, 1);
+    transform: scale(1.05);
+}
+
+/* Odds Section */
+.odds-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--odds-container-gap);
+    margin-top: var(--odds-container-margin-top);
+}
+
+/* Odds Title */
+.odds-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Individual Odds Text */
+.odd-text-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px var(--odd-text-padding-x);
+}
+
+/* Individual Odds Text */
+.odd-text {
+    font-size: 1rem;
+    color: #fff;
+    width: 50%;
+}
+
+
+/* ===== Fighter Name Input and Label (More Spacing) ===== */
+.name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* More space below name */
+}
+
+.name-container p {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.name-box {
+    padding: 8px;
+    width: 180px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* ===== "Get" Button Styles (Added Margin) ===== */
 button {
-    padding: 8px 12px;
+    padding: 10px 14px;
     font-size: 14px;
     cursor: pointer;
     border: 2px solid #ffcc00;
@@ -72,7 +176,8 @@ button {
     color: black;
     font-weight: bold;
     transition: background-color 0.2s ease-in-out, transform 0.1s;
-    border-radius: 10px;  /* ✅ Consistent rounded edges */
+    border-radius: 10px;
+    margin-top: 15px; /* Increased spacing below input */
 }
 
 button:hover {
@@ -86,39 +191,38 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
-    gap: 10px;
+    margin-top: 20px;
+    gap: 20px; /* More gap between image and stats */
 }
 
-/* Fighter Image (Ensures Fixed Size Before Image Loads) */
+/* Fighter Image */
 .fighter-details-container img {
     width: 220px;
     height: 335px;
-    border-radius: 10px;  /* ✅ Consistent rounded edges */
+    border-radius: 10px;
     border: 1px solid #fff;
     object-fit: cover;
     display: block;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Fighter Statistics Text Area (Resizable & Rounded) */
+/* Fighter Statistics Text Area */
 .fighter-details-text {
     border: 1px solid #fff;
-    min-height: 10rem;  /* ✅ Minimum height (prevents collapsing) */
-    min-width: 40px;   /* ✅ Minimum width (prevents collapsing) */
-    height: 20rem;      /* ✅ Default height */
-    width: 80%;         /* ✅ Default width */
+    min-height: 12rem;
+    min-width: 50px;
+    height: 20rem;
+    width: 80%;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
-    padding: 5px;
-    resize: both;       /* ✅ Allows resizing (height & width) */
-    overflow: auto;     /* ✅ Ensures scrollbar appears if needed */
+    padding: 10px;
+    resize: both;
+    overflow: auto;
     text-align: left;
-    border-radius: 10px;  /* ✅ Consistent rounded edges */
+    border-radius: 10px;
 }
 
-
-/* ===== Ensuring Any Other Containers Have Consistent Rounded Edges ===== */
+/* ===== Ensuring Consistent Rounded Edges for All Containers ===== */
 .fighter-details-container, .fighter {
-    border-radius: 10px; /* ✅ Ensures uniform round edges */
+    border-radius: 10px;
 }
