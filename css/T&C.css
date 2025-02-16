@@ -1,0 +1,90 @@
+/* Terms and Agreement Page Styles */
+/* ================================ */
+/* Font import */
+@import url('https://fonts.cdnfonts.com/css/hiairport');
+
+/* Body styles */
+body {
+    font-family: 'HIAIRPORT FFM', sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+}
+
+/* Header styles */
+.header {
+    background: linear-gradient(to bottom, #A3141B, #E52125); /* Using red gradient from the image */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'HIAIRPORT FFMCOND', sans-serif;
+    font-size: 24px;
+    position: relative;
+}
+
+/* Logo styles */
+.logo {
+    position: absolute;
+    top: 10px; /* Adjust these values to position the logo */
+    left: 10px; /* Adjust these values to position the logo */
+    height: 50px;
+    width: auto;
+}
+
+/* Container styles */
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-family: 'HIAIRPORTARRIVAL', sans-serif;
+}
+
+/* Content styles */
+.content {
+    clear: both;
+    padding-top: 20px;
+}
+
+/* Navigation bar styles */
+.navigation-bar {
+    background-color: goldenrod;
+    overflow: hidden;
+    font-family: 'HIAIRPORTDEPARTURE', sans-serif;
+}
+
+.navigation-bar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navigation-bar a:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Agree button styles */
+.agree-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Primary button styles */
+button.primary {
+    background-color: goldenrod;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button.primary:disabled {
+    background-color: #555;
+    color: white;
+}

@@ -1,0 +1,92 @@
+/* UFC Bet Tracker Page Styles */
+/* =========================== */
+/* Font import */
+@import url('https://fonts.cdnfonts.com/css/hiairport');
+
+/* Body styles */
+body {
+    font-family: 'HIAIRPORT FFMCOND', sans-serif;
+    background: url('C:/Gambling/Retro.gif') no-repeat center center fixed; /* Add your GIF path here */
+    background-size: cover;
+    color: #FFFFFF; /* White text */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header and footer styles */
+.header, .footer {
+    background-color: #000000; /* Black header and footer */
+    color: #DAA520; /* Goldenrod text */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #8B0000; /* Red border for header */
+}
+
+/* Main content styles */
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Sidebar and content styles */
+.sidebar, .content {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    padding: 20px;
+}
+
+/* Pixel art icon styles */
+.pixel-art-icon {
+    width: 100px; /* Increased size for avatar */
+    height: 100px; /* Increased size for avatar */
+}
+
+/* Profile styles */
+.profile p {
+    font-size: 20px; /* Increased font size for name and balance */
+}
+
+/* Dice icon styles */
+.dice-icon {
+    width: 32px; /* Increased size for dice image */
+    height: 32px; /* Increased size for dice image */
+    vertical-align: middle; /* Aligns dice icon to the middle */
+}
+
+/* Content heading styles */
+.content h2 {
+    display: inline;
+    font-size: 32px; /* Increased font size for Featured Games */
+}
+
+/* Content list item styles */
+.content ul li {
+    font-size: 20px; /* Increased font size for UFC games */
+}
+
+/* Content paragraph styles */
+.content p {
+    font-size: 24px; /* Increased font size for 50% welcome bonus */
+}
+
+/* Quick links styles */
+.quick-links h3, .quick-links ul li {
+    font-size: 18px; /* Increased font size for quick links */
+}
+
+/* Footer text alignment */
+.footer {
+    text-align: center;
+}
+
+/* Contact info and social media styles */
+.contact-info, .social-media {
+    margin-top: 10px;
+}
