@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bets.css">
+    <link href="https://fonts.cdnfonts.com/css/hiairport" rel="stylesheet">
     <title>Document</title>
     <style>
+        @import url('https://fonts.cdnfonts.com/css/hiairport');
+
         /* Navigation bar styles */
         .navigation-bar {
             display: flex;
@@ -19,6 +21,7 @@
         .profile-section {
             display: flex;
             align-items: center;
+            font-family: 'HIAIRPORT FFMCOND', sans-serif;
         }
 
         .profile-section img {
@@ -36,6 +39,7 @@
             background-color: goldenrod; /* Yellow background */
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            font-family: 'HIAIRPORT FFM', sans-serif;
         }
 
         .nav-links a:hover {
@@ -57,26 +61,26 @@
     </header>
     <main>
         <section class="fighter" style="justify-self: left;">
-            <div class="name-container">
+            <div class="name-container" style="font-family: 'HIAIRPORTARRIVAL', sans-serif;">
                 <p>Fighter Name</p>
                 <input type="text" class="name-box" id="left-name-box" onkeydown="if(event.key === 'Enter') getFighter('left')">
             </div>
             <button onclick="getFighter('left')">Get</button>
             <div class="fighter-details-container">
                 <img src="../assets/Male_Shadow.png" id="fighter-details-img-left">
-                <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-left"></textarea>
+                <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-left" style="font-family: 'HIAIRPORTDEPARTURE', sans-serif;"></textarea>
             </div>
         </section>
 
         <section class="middle" style="justify-self: center; justify-content: center;">
-            <h1 class="VS-text">VS</h1>
+            <h1 class="VS-text" style="font-family: 'HIAIRPORTARRIVAL', sans-serif;">VS</h1>
 
-            <div class="bet-container">
+            <div class="bet-container" style="font-family: 'HIAIRPORTDEPARTURE', sans-serif;">
                 <p>Bet: $</p>
                 <input type="number" class="bet-box" id="bet-box" placeholder="0">
             </div>
 
-            <div class="betting-for-container">
+            <div class="betting-for-container" style="font-family: 'HIAIRPORT FFMCOND', sans-serif;">
                 <p>Betting for left:</p>
                 <input type="checkbox" id="toggleSwitch" onchange="updateSwitch()">
             </div>
@@ -88,13 +92,13 @@
                 <button class="win-button" onclick="determineWin('right')">Right Win</button>
             </div>
 
-            <div class="odds-container">
+            <div class="odds-container" style="font-family: 'HIAIRPORTARRIVAL', sans-serif;">
                 <p class="odds-title">ODDS</p>
                 <p class="odd-text" id="left-odd-text"></p>
                 <p class="odd-text" id="right-odd-text"></p>
             </div>
 
-            <div class="results">
+            <div class="results" style="font-family: 'HIAIRPORT FFM', sans-serif;">
                 <p class="winner-heading-text">WINNER</p>
                 <p class="winner-person" id="winner-person"></p>
                 <p class="profit-heading-text">PROFIT</p>
@@ -105,220 +109,230 @@
         </section>
 
         <section class="fighter" style="justify-self: right;">
-            <div class="name-container">
+            <div class="name-container" style="font-family: 'HIAIRPORTARRIVAL', sans-serif;">
                 <p>Fighter Name</p>
                 <input type="text" class="name-box" id="right-name-box" onkeydown="if(event.key === 'Enter') getFighter('right')">
             </div>
             <button onclick="getFighter('right')">Get</button>
             <div class="fighter-details-container">
                 <img src="../assets/Male_Shadow.png" id="fighter-details-img-right">
-                <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-right"></textarea>
+                <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-right" style="font-family: 'HIAIRPORTDEPARTURE', sans-serif;"></textarea>
             </div>
         </section>
-        
-        <script src="../js/script.js"></script>        
-        <script>
-            let temp_fighter_left = null;
-            let temp_fighter_right = null;
+        <div class="name-container" style="font-family: 'HIAIRPORTARRIVAL', sans-serif;">
+            <p>Fighter Name</p>
+            <input type="text" class="name-box" id="right-name-box" onkeydown="if(event.key === 'Enter') getFighter('right')">
+        </div>
+        <button onclick="getFighter('right')">Get</button>
+        <div class="fighter-details-container">
+            <img src="../assets/Male_Shadow.png" id="fighter-details-img-right">
+            <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-right" style="font-family: 'HIAIRPORTDEPARTURE', sans-serif;"></textarea>
+        </div>
+    </section>
 
-            let left_fighter_chance = null;
-            let right_fighter_chance = null;
+    <script src="../js/script.js"></script>        
+    <script>
+        let temp_fighter_left = null;
+        let temp_fighter_right = null;
 
-            let betting_for = "right";
+        let left_fighter_chance = null;
+        let right_fighter_chance = null;
 
-            function updateSwitch() {
-                if (betting_for == "right") {
-                    betting_for = "left";
-                }
-                else if (betting_for == "left") {
-                    betting_for = "right";
-                }
-                console.log(betting_for);
+        let betting_for = "right";
+
+        function updateSwitch() {
+            if (betting_for == "right") {
+                betting_for = "left";
             }
-
-            function getFighter(side) {
-                if (side === 'left') {
-                    let name = document.getElementById("left-name-box").value.trim();
-                    var details_box = document.getElementById("fighter-details-text-left");
-                    details_box.textContent = '';
-
-                    getFighterByName(name).then(fighter => {
-                        // handle fighter data
-                        if (fighter == null) {
-                            details_box.textContent = "Fighter Not Found";
-                            document.getElementById("fighter-details-img-left").src = "../assets/Male_Shadow.png";
-                            temp_fighter_left = null;
-                            left_fighter_chance = null;
-                        }
-                        else {
-                            // details of fighter
-                            temp_fighter_left = fighter;
-                            document.getElementById("fighter-details-img-left").src = fighter['imgUrl'];
-
-                            details_box.textContent += fighter['name'] + ' (' + fighter['nickname'] + ')\n'; 
-                            details_box.textContent += 'Age: ' + fighter['age'] + '\n';
-                            details_box.textContent += 'Height: ' + fighter['height'] + ' inches\n';
-                            details_box.textContent += 'Weight: ' + fighter['weight'] + ' pounds\n';
-                            details_box.textContent += 'Category: ' + fighter['category'] + '\n';
-                            details_box.textContent += 'Reach: ' + fighter['reach'] + ' inches\n';
-                            details_box.textContent += 'Wins: ' + fighter['wins'] + '\n';
-                            details_box.textContent += 'Losses: ' + fighter['losses'] + '\n';
-                        }
-                    })
-                    .catch(error => console.error("Error:", error));
-                }
-                else if (side === 'right') {
-                    let name = document.getElementById("right-name-box").value.trim();
-                    var details_box = document.getElementById("fighter-details-text-right");
-                    details_box.textContent = '';
-
-                    getFighterByName(name).then(fighter => {
-                        // handle fighter data
-                        if (fighter == null) {
-                            details_box.textContent = "Fighter Not Found";
-                            document.getElementById("fighter-details-img-right").src = "../assets/Male_Shadow.png";
-                            temp_fighter_right = null;
-                            right_fighter_chance = null;
-                        }
-                        else {
-                            // details of fighter
-                            temp_fighter_right = fighter;
-                            document.getElementById("fighter-details-img-right").src = fighter['imgUrl'];
-
-                            details_box.textContent += fighter['name'] + ' (' + fighter['nickname'] + ')\n'; 
-                            details_box.textContent += 'Age: ' + fighter['age'] + '\n';
-                            details_box.textContent += 'Height: ' + fighter['height'] + ' inches\n';
-                            details_box.textContent += 'Weight: ' + fighter['weight'] + ' pounds\n';
-                            details_box.textContent += 'Category: ' + fighter['category'] + '\n';
-                            details_box.textContent += 'Reach: ' + fighter['reach'] + ' inches\n';
-                            details_box.textContent += 'Wins: ' + fighter['wins'] + '\n';
-                            details_box.textContent += 'Losses: ' + fighter['losses'] + '\n';
-                        }
-                    })
-                    .catch(error => console.error("Error: ", error));
-                }
-
-                if (temp_fighter_left != null && temp_fighter_right != null) {
-                    let whatever = getOdds();
-                }
+            else if (betting_for == "left") {
+                betting_for = "right";
             }
+            console.log(betting_for);
+        }
 
-            function printOdds() {
-                if (temp_fighter_left == null || temp_fighter_right == null) {
-                    alert("Please input both fighters.")
-                }
-                else {
-                    console.log(getOdds());
-                }
-            }
+        function getFighter(side) {
+            if (side === 'left') {
+                let name = document.getElementById("left-name-box").value.trim();
+                var details_box = document.getElementById("fighter-details-text-left");
+                details_box.textContent = '';
 
-            function determineWin(side) {
-                if (temp_fighter_left == null || temp_fighter_right == null) {
-                    alert("Please input both fighters.");
-                    return;
-                }
-
-                let odds = getOdds();  // Get calculated odds (sum to 1, under 1)
-                let bet_money = parseFloat(document.getElementById('bet-box').value);
-                if (isNaN(bet_money)) {
-                    alert("Please input float value money into the bet.");
-                    bet_money = 0;
-                }
-
-                let result = null;
-
-                if (side == "left") {
-                    document.getElementById("winner-person").textContent = temp_fighter_left['name'];
-                    result = generateResult(temp_fighter_left['name'], temp_fighter_right['name']);
-                }
-                else if (side == "right") {
-                    document.getElementById("winner-person").textContent = temp_fighter_right['name'];
-                    result = generateResult(temp_fighter_right['name'], temp_fighter_left['name']);
-                }
-
-                console.log("Left Odds:", odds['left_fighter_chance']);
-                console.log("Right Odds:", odds['right_fighter_chance']);
-
-                let probability = side === "left" ? odds['left_fighter_chance'] : odds['right_fighter_chance'];
-                let opponent_probability = side === "left" ? odds['right_fighter_chance'] : odds['left_fighter_chance'];
-
-                let profit = 0;
-
-                if (betting_for === side) {
-                    // ✅ Winning Bet: Pays based on fair inverse probability
-                    profit = bet_money * (1 / probability) - bet_money;
-                } else {
-                    // ✅ Losing Bet: Partial refund based on underdog odds
-                    profit = -bet_money * (1 - opponent_probability);
-                }
-
-                profit = profit.toFixed(2);
-                document.getElementById("profit-value").textContent = "$" + profit;
-                document.getElementById("result-text").textContent = result;
-
-                fights.push(new Fight(temp_fighter_left['name'], temp_fighter_right['name'], side == "left" ? temp_fighter_left['name'] : temp_fighter_right['name'], result, profit));
-                user_data.net_profit += profit;
-            }
-
-            function generateResult(winner, loser) {
-                // 🔹 Define possible fight outcomes
-                const outcomes = [
-                    `${winner} knocked out ${loser} by hook`,
-                    `${winner} knocked out ${loser} by jab`,
-                    `${winner} knocked out ${loser} by roundhouse kick`,
-                    `${winner} broke ${loser}'s bones`,
-                    `${winner} choked ${loser}`,
-                    `${loser} tapped out during submission by ${winner}`,
-                    `${loser} lost by foul`
-                ];
-
-                // 🔹 40% chance for decision win, 60% for other outcomes
-                let randomChance = Math.random(); // Generates a number between 0 and 1
-
-                if (randomChance < 0.40) {
-                    return `${winner} won by majority decision`;
-                } else {
-                    // Pick a random outcome from the remaining 60%
-                    let randomIndex = Math.floor(Math.random() * outcomes.length);
-                    return outcomes[randomIndex];
-                }
-            }
-
-            function simulateWin() {
-                if (temp_fighter_left != null && temp_fighter_right != null) {
-                    let randNum = Math.random();
-                    let odds = getOdds();
-
-                    if (randNum < odds['left_fighter_chance'])
-                        determineWin("left");
-                    else
-                        determineWin("right");
-                } else {
-                    alert("Please input both fighters.");
-                }
-            }
-
-            function getOdds() {
-                function getFighterScore(fighter) {
-                    let score = 0;
-
-                    // 🔹 1. Win-Loss Record (Primary Factor)
-                    score += fighter.wins * 5;  // 5 points per win
-                    score -= fighter.losses * 3; // -3 points per loss
-
-                    // 🔹 2. Age Factor (Prime Age: 25-34)
-                    if (fighter.age >= 25 && fighter.age <= 34) {
-                        score += 10; // Fighters in their prime get +10
-                    } else {
-                        score -= 5;  // Fighters outside prime lose -5
+                getFighterByName(name).then(fighter => {
+                    // handle fighter data
+                    if (fighter == null) {
+                        details_box.textContent = "Fighter Not Found";
+                        document.getElementById("fighter-details-img-left").src = "../assets/Male_Shadow.png";
+                        temp_fighter_left = null;
+                        left_fighter_chance = null;
                     }
+                    else {
+                        // details of fighter
+                        temp_fighter_left = fighter;
+                        document.getElementById("fighter-details-img-left").src = fighter['imgUrl'];
 
-                    // 🔹 3. Height & Reach Advantage (Each inch = +0.5 points)
-                    score += (fighter.height * 0.5);
-                    score += (fighter.reach * 0.5);
+                        details_box.textContent += fighter['name'] + ' (' + fighter['nickname'] + ')\n'; 
+                        details_box.textContent += 'Age: ' + fighter['age'] + '\n';
+                        details_box.textContent += 'Height: ' + fighter['height'] + ' inches\n';
+                        details_box.textContent += 'Weight: ' + fighter['weight'] + ' pounds\n';
+                        details_box.textContent += 'Category: ' + fighter['category'] + '\n';
+                        details_box.textContent += 'Reach: ' + fighter['reach'] + ' inches\n';
+                        details_box.textContent += 'Wins: ' + fighter['wins'] + '\n';
+                        details_box.textContent += 'Losses: ' + fighter['losses'] + '\n';
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            }
+            else if (side === 'right') {
+                let name = document.getElementById("right-name-box").value.trim();
+                var details_box = document.getElementById("fighter-details-text-right");
+                details_box.textContent = '';
 
-                    // 🔹 4. Weight Factor (Balanced weight is good)
-                    score += (fighter.weight * 0.2); // Higher weight gives slight advantage
+                getFighterByName(name).then(fighter => {
+                    // handle fighter data
+                    if (fighter == null) {
+                        details_box.textContent = "Fighter Not Found";
+                        document.getElementById("fighter-details-img-right").src = "../assets/Male_Shadow.png";
+                        temp_fighter_right = null;
+                        right_fighter_chance = null;
+                    }
+                    else {
+                        // details of fighter
+                        temp_fighter_right = fighter;
+                        document.getElementById("fighter-details-img-right").src = fighter['imgUrl'];
+
+                        details_box.textContent += fighter['name'] + ' (' + fighter['nickname'] + ')\n'; 
+                        details_box.textContent += 'Age: ' + fighter['age'] + '\n';
+                        details_box.textContent += 'Height: ' + fighter['height'] + ' inches\n';
+                        details_box.textContent += 'Weight: ' + fighter['weight'] + ' pounds\n';
+                        details_box.textContent += 'Category: ' + fighter['category'] + '\n';
+                        details_box.textContent += 'Reach: ' + fighter['reach'] + ' inches\n';
+                        details_box.textContent += 'Wins: ' + fighter['wins'] + '\n';
+                        details_box.textContent += 'Losses: ' + fighter['losses'] + '\n';
+                    }
+                })
+                .catch(error => console.error("Error: ", error));
+            }
+
+            if (temp_fighter_left != null && temp_fighter_right != null) {
+                let whatever = getOdds();
+            }
+        }
+
+        function printOdds() {
+            if (temp_fighter_left == null || temp_fighter_right == null) {
+                alert("Please input both fighters.")
+            }
+            else {
+                console.log(getOdds());
+            }
+        }
+
+        function determineWin(side) {
+            if (temp_fighter_left == null || temp_fighter_right == null) {
+                alert("Please input both fighters.");
+                return;
+            }
+
+            let odds = getOdds();  // Get calculated odds (sum to 1, under 1)
+            let bet_money = parseFloat(document.getElementById('bet-box').value);
+            if (isNaN(bet_money)) {
+                alert("Please input float value money into the bet.");
+                bet_money = 0;
+            }
+
+            let result = null;
+
+            if (side == "left") {
+                document.getElementById("winner-person").textContent = temp_fighter_left['name'];
+                result = generateResult(temp_fighter_left['name'], temp_fighter_right['name']);
+            }
+            else if (side == "right") {
+                document.getElementById("winner-person").textContent = temp_fighter_right['name'];
+                result = generateResult(temp_fighter_right['name'], temp_fighter_left['name']);
+            }
+
+            console.log("Left Odds:", odds['left_fighter_chance']);
+            console.log("Right Odds:", odds['right_fighter_chance']);
+
+            let probability = side === "left" ? odds['left_fighter_chance'] : odds['right_fighter_chance'];
+            let opponent_probability = side === "left" ? odds['right_fighter_chance'] : odds['left_fighter_chance'];
+
+            let profit = 0;
+
+            if (betting_for === side) {
+                // ✅ Winning Bet: Pays based on fair inverse probability
+                profit = bet_money * (1 / probability) - bet_money;
+            } else {
+                // ✅ Losing Bet: Partial refund based on underdog odds
+                profit = -bet_money * (1 - opponent_probability);
+            }
+
+            profit = profit.toFixed(2);
+            document.getElementById("profit-value").textContent = "$" + profit;
+            document.getElementById("result-text").textContent = result;
+
+            fights.push(new Fight(temp_fighter_left['name'], temp_fighter_right['name'], side == "left" ? temp_fighter_left['name'] : temp_fighter_right['name'], result, profit));
+            user_data.net_profit += profit;
+        }
+
+        function generateResult(winner, loser) {
+            // 🔹 Define possible fight outcomes
+            const outcomes = [
+                `${winner} knocked out ${loser} by hook`,
+                `${winner} knocked out ${loser} by jab`,
+                `${winner} knocked out ${loser} by roundhouse kick`,
+                `${winner} broke ${loser}'s bones`,
+                `${winner} choked ${loser}`,
+                `${loser} tapped out during submission by ${winner}`,
+                `${loser} lost by foul`
+            ];
+
+            // 🔹 40% chance for decision win, 60% for other outcomes
+            let randomChance = Math.random(); // Generates a number between 0 and 1
+
+            if (randomChance < 0.40) {
+                return `${winner} won by majority decision`;
+            } else {
+                // Pick a random outcome from the remaining 60%
+                let randomIndex = Math.floor(Math.random() * outcomes.length);
+                return outcomes[randomIndex];
+            }
+        }
+
+        function simulateWin() {
+            if (temp_fighter_left != null && temp_fighter_right != null) {
+                let randNum = Math.random();
+                let odds = getOdds();
+
+                if (randNum < odds['left_fighter_chance'])
+                    determineWin("left");
+                else
+                    determineWin("right");
+            } else {
+                alert("Please input both fighters.");
+            }
+        }
+
+        function getOdds() {
+            function getFighterScore(fighter) {
+                let score = 0;
+
+                // 🔹 1. Win-Loss Record (Primary Factor)
+                score += fighter.wins * 5;  // 5 points per win
+                score -= fighter.losses * 3; // -3 points per loss
+
+                // 🔹 2. Age Factor (Prime Age: 25-34)
+                if (fighter.age >= 25 && fighter.age <= 34) {
+                    score += 10; // Fighters in their prime get +10
+                } else {
+                    score -= 5;  // Fighters outside prime lose -5
+                }
+
+                // 🔹 3. Height & Reach Advantage (Each inch = +0.5 points)
+                score += (fighter.height * 0.5);
+                score += (fighter.reach * 0.5);
+
+                // 🔹 4. Weight Factor 
+                score += (fighter.weight * 0.2); // Higher weight gives slight advantage
                     
                     return Math.max(1, score); // Ensure score is at least 1
                 }
@@ -332,8 +346,8 @@
                 let left_fighter_chance = leftScore / totalScore;
                 let right_fighter_chance = rightScore / totalScore;
 
-                document.getElementById("left-odd-text").textContent = temp_fighter_left.name + ": " + left_fighter_chance.toFixed(2)*100 + "%";
-                document.getElementById("right-odd-text").textContent = temp_fighter_right.name + ": " + right_fighter_chance.toFixed(2)*100 + "%";
+                document.getElementById("left-odd-text").textContent = temp_fighter_left.name + ": " + (left_fighter_chance*100).toFixed(2) + "%";
+                document.getElementById("right-odd-text").textContent = temp_fighter_right.name + ": " + (right_fighter_chance*100).toFixed(2) + "%";
 
                 return {
                     left_fighter_chance: left_fighter_chance.toFixed(2), 
