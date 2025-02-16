@@ -46,7 +46,7 @@ main {
     --middle-margin-top: -90px;  /* Adjust middle section position */
     --middle-margin-left: 0px;   /* Move left/right */
 
-    --vs-text-margin-top: 25px;  /* ✅ Controls VS text position */
+    --vs-text-margin-top: 25px;  /* Controls VS text position */
     --vs-text-margin-bottom: 15px; /* Adjust VS text spacing */
 
     --bet-container-margin-top: 5px;  /* Adjust bet container position */
@@ -75,18 +75,18 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 10px;  /* ✅ Ensures consistent spacing between components */
+    gap: 10px;  /* Ensures consistent spacing between components */
     margin-top: var(--middle-margin-top);
     margin-left: var(--middle-margin-left);
     position: relative;
 }
 
-/* ✅ VS Text (Independent Movement) */
+/* VS Text (Independent Movement) */
 .VS-text {
     font-size: 3rem;
     font-weight: bold;
-    position: relative; /* ✅ Allows independent movement */
-    top: var(--vs-text-margin-top);  /* ✅ Move VS text up or down */
+    position: relative; /* Allows independent movement */
+    top: var(--vs-text-margin-top);  /* Move VS text up or down */
     margin-bottom: var(--vs-text-margin-bottom);
 }
 
@@ -106,7 +106,7 @@ main {
     width: 80px;
     text-align: center;
     border-radius: 10px;
-    border: 1.5px solid #ffcc00;  /* ✅ Thinner golden border */
+    border: 1.5px solid #ffcc00;  /* Thinner golden border */
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
 }
@@ -124,10 +124,10 @@ main {
 #toggleSwitch {
     width: 20px;
     height: 20px;
-    accent-color: #ffcc00; /* ✅ Gold checkbox color */
+    accent-color: #ffcc00; /* Gold checkbox color */
 }
 
-/* ✅ Fix Simulate Fight Button Positioning */
+/* Fix Simulate Fight Button Positioning */
 .sim-button {
     padding: 12px 18px;
     font-size: 16px;
@@ -138,10 +138,10 @@ main {
     font-weight: bold;
     border-radius: 10px;
 
-    position: relative;  /* ✅ Ensures independent movement */
-    top: var(--simulate-button-margin-top);  /* ✅ Moves freely */
+    position: relative;  /* Ensures independent movement */
+    top: var(--simulate-button-margin-top);  /* Moves freely */
 
-    margin-top: 10px;  /* ✅ Adds spacing below */
+    margin-top: 10px;  /* Adds spacing below */
 }
 
 
@@ -184,16 +184,16 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;  /* ✅ No extra spacing between ODDS and results */
+    gap: 0;  /* No extra spacing between ODDS and results */
     margin-top: var(--odds-container-margin-top);
-    min-height: 80px;  /* ✅ Prepares space for dynamic results */
+    min-height: 80px;  /* Prepares space for dynamic results */
 }
 
 /* Odds Title */
 .odds-title {
     font-size: 1.4rem;
     font-weight: bold;
-    margin-bottom: 5px;  /* ✅ Ensures tight spacing below "ODDS" */
+    margin-bottom: 5px;  /* Ensures tight spacing below "ODDS" */
 }
 
 /* Individual Odds Text */
@@ -201,7 +201,7 @@ main {
     font-size: 1rem;
     color: #fff;
     text-align: center;
-    margin-bottom: 2px; /* ✅ Keeps odds compact without large gaps */
+    margin-bottom: 2px; /* Keeps odds compact without large gaps */
 }
 
 /* Results Section (Prevents Overlap) */
@@ -209,8 +209,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  /* ✅ Keeps content centered */
-    min-height: 60px;  /* ✅ Prepares space for results to avoid shifting */
+    justify-content: center;  /* Keeps content centered */
+    min-height: 60px;  /* Prepares space for results to avoid shifting */
     text-align: center;
 }
 
@@ -218,7 +218,7 @@ main {
 .winner-heading-text, .profit-heading-text {
     font-size: 1.2rem; 
     font-weight: bold;
-    margin: 2px 0;  /* ✅ No extra spacing between WINNER and PROFIT */
+    margin: 2px 0;  /* No extra spacing between WINNER and PROFIT */
 }
 
 /* Winner Name & Profit Value */
@@ -227,14 +227,14 @@ main {
     color: #ffcc00; 
     font-weight: bold;
     text-align: center;
-    margin: 0;  /* ✅ Keeps everything compact */
+    margin: 0;  /* Keeps everything compact */
 }
 
 /* Results Text */
 .results p {
     text-align: center;
     font-size: 1rem;
-    margin: 2px 0;  /* ✅ Ensures even spacing without extra gaps */
+    margin: 2px 0;  /* Ensures even spacing without extra gaps */
 }
 
 
@@ -312,7 +312,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 60px; /* ✅ Ensures space below Name */
+    margin-bottom: 60px; /* Ensures space below Name */
 }
 
 .name-box {
@@ -339,24 +339,24 @@ button:hover {
     width: 220px;
     height: 335px;
     border-radius: 10px;
-    border: 1px solid #ffcc00; /* ✅ Golden border */
+    border: 1px solid #ffcc00; /* Golden border */
     object-fit: cover;
     display: block;
-    background-color: #ffffff; /* ✅ White background */
+    background-color: #ffffff; /* White background */
 
-    /* ✅ Smooth transition effect */
+    /* Smooth transition effect */
     opacity: 1;
     transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
-/* ✅ When the image changes, trigger animation */
+/* When the image changes, trigger animation */
 .fighter-details-container img[data-new-img]:not([src*="Male_Shadow.png"]) {
     opacity: 0;
     transform: scale(0.9); /* Shrink effect before transition */
-    animation: fadeInZoom 0.6s forwards; /* ✅ Smooth fade-in & zoom */
+    animation: fadeInZoom 0.6s forwards; /* Smooth fade-in & zoom */
 }
 
-/* ✅ Keyframe Animation for Smooth Fade-In and Scale Effect */
+/* Keyframe Animation for Smooth Fade-In and Scale Effect */
 @keyframes fadeInZoom {
     0% {
         opacity: 0;
@@ -373,20 +373,20 @@ button:hover {
 
 /* Fighter Statistics Text Area (Fixed Size & No Resizing) */
 .fighter-details-text {
-    border: 1px solid #ffcc00;  /* ✅ Thinner golden border */
-    height: 315px;   /* ✅ Fixed height */
-    width: 200px;    /* ✅ Fixed width */
+    border: 1px solid #ffcc00;  /* Thinner golden border */
+    height: 315px;   /* Fixed height */
+    width: 200px;    /* Fixed width */
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 10px;
-    overflow: auto;  /* ✅ Keeps scrollbar if needed */
+    overflow: auto;  /* Keeps scrollbar if needed */
     text-align: left;
     border-radius: 10px;
 
-    /* ❌ Remove Resizing */
+    /* Remove Resizing */
     resize: none;
 
-    /* ✅ Golden glow when focused */
+    /* Golden glow when focused */
     outline: 1px solid #ffcc00;
     box-shadow: 0 0 5px rgba(255, 204, 0, 0.6);
 }
