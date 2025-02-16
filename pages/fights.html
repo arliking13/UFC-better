@@ -9,7 +9,9 @@
 <body>
 
     <header>
-        <!-- add header -->
+        <nav class="navbar">
+            <a href="#" class="nav-link">Bets</a>
+        </nav>
     </header>
     <main>
         <h1>FIGHTS HISTORY</h1>
@@ -60,6 +62,10 @@
                 container.appendChild(clone);
             }
         }
+
+        document.querySelector('.nav-link').addEventListener('click', function() {
+            window.location.href = 'bets.html'; // Replace 'YOUR_LINK_HERE' with the desired URL
+        });
     </script>
 </body>
 </html>
