@@ -181,6 +181,15 @@ main {
     color: #fff;
 }
 
+/* Add this new focus effect to replace the default blue highlight */
+.name-box:focus,
+.bet-box:focus {
+    outline: 1px solid #ffcc00; /* Changes the default blue outline to golden yellow */
+    border: 1px solid #ffcc00;  /* Makes the input border golden yellow */
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.8); /* Adds a glowing effect */
+}
+
+
 /* ===== Define Positioning Variables ===== */
 :root {
     --get-button-margin-top: -15px;  /* Default margin for Get button */
@@ -260,7 +269,7 @@ button:hover {
 
 /* Fighter Statistics Text Area (Fixed Size & No Resizing) */
 .fighter-details-text {
-    border: 1px solid #fff;
+    border: 1.5px solid #ffcc00;  /* ✅ Thinner golden border */
     height: 315px;   /* ✅ Fixed height */
     width: 200px;    /* ✅ Fixed width */
     background-color: rgba(255, 255, 255, 0.1);
@@ -272,6 +281,10 @@ button:hover {
 
     /* ❌ Remove Resizing */
     resize: none;
+
+    /* ✅ Golden glow when focused */
+    outline: 1.5px solid #ffcc00;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.6);
 }
 
 
