@@ -3,20 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fights.css">
     <title>Document</title>
 </head>
 <body>
+
     <header>
         <!-- add header -->
     </header>
     <main>
         <h1>FIGHTS HISTORY</h1>
-        <p>Matches: </p>
-        <p>Net Profit: $</p>
+        <p class="matches-text" id="matches-text">Matches: </p>
+        <p class="net-profit-text" id="net-profit-text">Net Profit: </p>
+
+        <div class="fights-container" id="fights-container">
+
+        </div>
     </main>
     <script src="../js/script.js"></script>
-    <script>
 
+    <template id="fights-template">
+        <div class="fight-bar" id="">
+            <div class="top-row">
+                <p class="winner-name"></p>
+                <p class="VS-text">VS</p>
+                <p class="loser-name"></p>
+            </div>
+            <div class="middle-row">
+                <p class="profit-value"></p>
+            </div>
+            <div class="bottom-row">
+                <p class="result-text"></p>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        document.getElementById(".matches-text").textContent = "Matches: " + fights.length;
+        document.getElementById(".net-profit-text").textContent = "Net Profit: " + fights.length;
+
+        if (fights) {
+            const temp = document.getElementById("fights-template");
+            let container = document.getElementById("fights-container");
+
+            for (let i = 0; i < fights.length; i++) {
+                let f = fights[i];
+                let clone = document.importNode(temp.content, true);
+
+                clone.querySelector(".fight-bar").id = i.toString();
+                clone.querySelector(".winner-name").textContent = f.winner;
+                clone.querySelector(".loser-name").textContent = f.winner == f.fighter1 ? f.fighter2 : f.fighter1;
+                clone.querySelector(".profit-value").textContent = "$" + f.profit;
+                clone.querySelector(".result-text").textContent = f.result;
+                container.appendChild(clone);
+            }
+        }
     </script>
 </body>
 </html>

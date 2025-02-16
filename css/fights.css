@@ -2,3 +2,13 @@ main {
     width: 100%;
     justify-items: center;
 }
+
+.fights-bar {
+    width: 80%;
+    border: 3px solid black;
+}
+
+.top-row {
+    display: flex;
+    flex-direction: row;
+}
