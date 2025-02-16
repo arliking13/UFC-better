@@ -11,11 +11,11 @@
         <section class="fighter" style="justify-self: left;">
             <div class="name-container">
                 <p>Fighter Name</p>
-                <input type="text" class="name-box" id="left-name-box">
+                <input type="text" class="name-box" id="left-name-box" onkeydown="if(event.key === 'Enter') getFighter('left')">
             </div>
             <button onclick="getFighter('left')">Get</button>
             <div class="fighter-details-container">
-                <img src="" id="fighter-details-img-left">
+                <img src="../assets/Male_Fighter.png" id="fighter-details-img-left">
                 <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-left"></textarea>
             </div>
         </section>
@@ -25,8 +25,15 @@
 
             <div class="bet-container">
                 <p>Bet: $</p>
-                <input type="text" class="bet-box" id="bet-box">
+                <input type="number" class="bet-box" id="bet-box" placeholder="0">
             </div>
+
+            <div class="betting-for-container">
+                <p>Betting for left:</p>
+                <input type="checkbox" id="toggleSwitch" onchange="updateSwitch()">
+            </div>
+
+            <button class="win-button" onclick="simulateWin()">Simulate Fight</button>
 
             <div class="win-button-container">
                 <button class="win-button" onclick="determineWin('left')">Left Win</button>
@@ -40,18 +47,21 @@
             </div>
 
             <div class="results">
-                
+                <p class="winner-heading-text">WINNER</p>
+                <p class="winner-person" id="winner-person"></p>
+                <p class="profit-heading-text">PROFIT</p>
+                <p class="profit-value" id="profit-value"></p>
             </div>
         </section>
 
         <section class="fighter" style="justify-self: right;">
             <div class="name-container">
                 <p>Fighter Name</p>
-                <input type="text" class="name-box" id="right-name-box">
+                <input type="text" class="name-box" id="right-name-box" onkeydown="if(event.key === 'Enter') getFighter('right')">
             </div>
             <button onclick="getFighter('right')">Get</button>
             <div class="fighter-details-container">
-                <img src="" id="fighter-details-img-right">
+                <img src="../assets/Male_Fighter.png" id="fighter-details-img-right">
                 <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-right"></textarea>
             </div>
         </section>
@@ -64,6 +74,18 @@
             let left_fighter_chance = null;
             let right_fighter_chance = null;
 
+            let betting_for = "right";
+
+            function updateSwitch() {
+                if (betting_for == "right") {
+                    betting_for = "left";
+                }
+                else if (betting_for == "left") {
+                    betting_for = "right";
+                }
+                console.log(betting_for);
+            }
+
             function getFighter(side) {
                 if (side === 'left') {
                     let name = document.getElementById("left-name-box").value.trim();
@@ -74,7 +96,7 @@
                         // handle fighter data
                         if (fighter == null) {
                             details_box.textContent = "Fighter Not Found";
-                            document.getElementById("fighter-details-img-left").src = "";
+                            document.getElementById("fighter-details-img-left").src = "../assets/Male_Fighter.png";
                             temp_fighter_left = null;
                             left_fighter_chance = null;
                         }
@@ -104,7 +126,7 @@
                         // handle fighter data
                         if (fighter == null) {
                             details_box.textContent = "Fighter Not Found";
-                            document.getElementById("fighter-details-img-right").src = "";
+                            document.getElementById("fighter-details-img-right").src = "../assets/Male_Fighter.png";
                             temp_fighter_right = null;
                             right_fighter_chance = null;
                         }
@@ -142,15 +164,57 @@
 
             function determineWin(side) {
                 if (temp_fighter_left == null || temp_fighter_right == null) {
-                    alert("Please input both fighters.")
+                    alert("Please input both fighters.");
+                    return;
                 }
-                else {
-                    let odds = getOdds();
+
+                let odds = getOdds();  // Get calculated odds (sum to 1, under 1)
+                let bet_money = parseFloat(document.getElementById('bet-box').value);
+                if (isNaN(bet_money)) {
+                    alert("Please input float value money into the bet.");
+                    bet_money = 0;
                 }
+
+                if (side == "left") 
+                    document.getElementById("winner-person").textContent = temp_fighter_left['name'];
+                else if (side == "right") 
+                    document.getElementById("winner-person").textContent = temp_fighter_right['name'];
+
+                console.log("Left Odds:", odds['left_fighter_chance']);
+                console.log("Right Odds:", odds['right_fighter_chance']);
+
+                let probability = side === "left" ? odds['left_fighter_chance'] : odds['right_fighter_chance'];
+                let opponent_probability = side === "left" ? odds['right_fighter_chance'] : odds['left_fighter_chance'];
+
+                let profit = 0;
+
+                if (betting_for === side) {
+                    // ✅ Winning Bet: Pays based on fair inverse probability
+                    profit = bet_money * (1 / probability) - bet_money;
+                } else {
+                    // ✅ Losing Bet: Partial refund based on underdog odds
+                    profit = -bet_money * (1 - opponent_probability);
+                }
+
+                profit = profit.toFixed(2);
+                document.getElementById("profit-value").textContent = "$" + profit;
+
+                
             }
 
-            function simulateWin() {
 
+            function simulateWin() {
+                if (temp_fighter_left != null && temp_fighter_right != null) {
+                    let randNum = Math.random();
+                    let odds = getOdds();
+
+                    if (randNum < odds['left_fighter_chance'])
+                        determineWin("left");
+                    else
+                        determineWin("right");
+                } else {
+                    alert("Please input both fighters.");
+                }
             }
 
             function getOdds() {
