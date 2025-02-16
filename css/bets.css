@@ -55,16 +55,16 @@ main {
     --betting-container-margin-top: -15px;  /* Adjust betting section positioning */
     --betting-container-gap: 10px;         /* Space between text and checkbox */
 
-    --sim-button-margin-top: -20px;   /* Adjust Simulate Fight button position */
+    --sim-button-margin-top: -30px;   /* Adjust Simulate Fight button position */
    
 
-    --win-button-margin-top: 50px;   /* Move win buttons up/down */
+    --win-button-margin-top: 12px;   /* Move win buttons up/down */
     --win-button-gap: 90px;          /* Adjust space between win buttons */
 
-    --odds-container-margin-top: 15px; /* Adjust odds section positioning */
+    --odds-container-margin-top: -35px; /* Adjust odds section positioning */
     --odds-container-gap: 5px;         /* Space between odds elements */
 
-    --result-container-margin-top: -20px; /* Adjust result positioning */
+    --result-container-margin-top: -60px; /* Adjust result positioning */
 }
 
 /* ===== Middle Section (VS, Bet, Buttons, Odds, Results) ===== */
@@ -179,10 +179,21 @@ main {
     margin-top: var(--odds-container-margin-top);
 }
 
+/* Odds Section */
+.odds-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;  /* ✅ No extra spacing between ODDS and results */
+    margin-top: var(--odds-container-margin-top);
+    min-height: 80px;  /* ✅ Prepares space for dynamic results */
+}
+
 /* Odds Title */
 .odds-title {
     font-size: 1.4rem;
     font-weight: bold;
+    margin-bottom: 5px;  /* ✅ Ensures tight spacing below "ODDS" */
 }
 
 /* Individual Odds Text */
@@ -190,29 +201,42 @@ main {
     font-size: 1rem;
     color: #fff;
     text-align: center;
+    margin-bottom: 2px; /* ✅ Keeps odds compact without large gaps */
 }
 
-/* Results Section */
+/* Results Section (Prevents Overlap) */
 .results {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-    margin-top: var(--result-container-margin-top);
+    justify-content: center;  /* ✅ Keeps content centered */
+    min-height: 60px;  /* ✅ Prepares space for results to avoid shifting */
+    text-align: center;
 }
 
 /* Winner & Profit Styling */
 .winner-heading-text, .profit-heading-text {
-    font-size: 1rem;
+    font-size: 1.2rem; 
     font-weight: bold;
-    margin-top: 5px;
+    margin: 2px 0;  /* ✅ No extra spacing between WINNER and PROFIT */
 }
 
+/* Winner Name & Profit Value */
 .winner-person, .profit-value {
-    font-size: 1rem;
-    color: #ffcc00;
+    font-size: 1.1rem; 
+    color: #ffcc00; 
     font-weight: bold;
+    text-align: center;
+    margin: 0;  /* ✅ Keeps everything compact */
 }
+
+/* Results Text */
+.results p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 2px 0;  /* ✅ Ensures even spacing without extra gaps */
+}
+
 
 
 /* ===== Fighter Name Input and Label (More Spacing) ===== */
@@ -236,6 +260,7 @@ main {
     border: 1px solid #fff;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
+    margin-bottom: -30px;
 }
 
 /* Add this new focus effect to replace the default blue highlight */
@@ -249,7 +274,7 @@ main {
 
 /* ===== Define Positioning Variables ===== */
 :root {
-    --get-button-margin-top: -15px;  /* Default margin for Get button */
+    --get-button-margin-top: -1px;  /* Default margin for Get button */
     --get-button-margin-bottom: 0px; /* Default bottom margin */
 }
 
