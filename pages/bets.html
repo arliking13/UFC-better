@@ -15,7 +15,7 @@
             </div>
             <button onclick="getFighter('left')">Get</button>
             <div class="fighter-details-container">
-                <img src="../assets/Male_Fighter.png" id="fighter-details-img-left">
+                <img src="../assets/Male_Shadow.png" id="fighter-details-img-left">
                 <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-left"></textarea>
             </div>
         </section>
@@ -51,6 +51,8 @@
                 <p class="winner-person" id="winner-person"></p>
                 <p class="profit-heading-text">PROFIT</p>
                 <p class="profit-value" id="profit-value"></p>
+                <p class="results-heading-text">RESULTS</p>
+                <p class="profit-value" id="result-text"></p>
             </div>
         </section>
 
@@ -175,10 +177,16 @@
                     bet_money = 0;
                 }
 
-                if (side == "left") 
+                let result = null;
+
+                if (side == "left") {
                     document.getElementById("winner-person").textContent = temp_fighter_left['name'];
-                else if (side == "right") 
+                    result = generateResult(temp_fighter_left['name'], temp_fighter_right['name']);
+                }
+                else if (side == "right") {
                     document.getElementById("winner-person").textContent = temp_fighter_right['name'];
+                    result = generateResult(temp_fighter_right['name'], temp_fighter_left['name']);
+                }
 
                 console.log("Left Odds:", odds['left_fighter_chance']);
                 console.log("Right Odds:", odds['right_fighter_chance']);
@@ -198,10 +206,35 @@
 
                 profit = profit.toFixed(2);
                 document.getElementById("profit-value").textContent = "$" + profit;
+                document.getElementById("result-text").textContent = result;
 
-                
+                fights.push(new Fight(temp_fighter_left['name'], temp_fighter_right['name'], side == "left" ? temp_fighter_left['name'] : temp_fighter_right['name'], result, profit));
+                user_data.net_profit += profit;
             }
 
+            function generateResult(winner, loser) {
+                // 🔹 Define possible fight outcomes
+                const outcomes = [
+                    `${winner} knocked out ${loser} by hook`,
+                    `${winner} knocked out ${loser} by jab`,
+                    `${winner} knocked out ${loser} by roundhouse kick`,
+                    `${winner} broke ${loser}'s bones`,
+                    `${winner} choked ${loser}`,
+                    `${loser} tapped out during submission by ${winner}`,
+                    `${loser} lost by foul`
+                ];
+
+                // 🔹 40% chance for decision win, 60% for other outcomes
+                let randomChance = Math.random(); // Generates a number between 0 and 1
+
+                if (randomChance < 0.40) {
+                    return `${winner} won by majority decision`;
+                } else {
+                    // Pick a random outcome from the remaining 60%
+                    let randomIndex = Math.floor(Math.random() * outcomes.length);
+                    return outcomes[randomIndex];
+                }
+            }
 
             function simulateWin() {
                 if (temp_fighter_left != null && temp_fighter_right != null) {
