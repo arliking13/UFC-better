@@ -1,31 +1,108 @@
+/* =============== BETS PAGE STYLES =============== */
+
+/* ===== Page Background: RED ===== */
+body {
+    background-color: #8B0000; /* Dark Red */
+    color: #fff;
+}
+
+/* ===== Layout: Arrange Fighters and Middle Section ===== */
 main {
     display: flex;
-    flex-direction: row;
-    align-items: top;
+    justify-content: space-between;  
+    align-items: flex-start;         
     width: 100%;
+    max-width: 1200px;              
+    margin: 20px auto;
 }
 
+/* ===== Left and Right Fighter Sections ===== */
 .fighter {
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    text-align: center;
 }
 
+/* ===== Middle Section (VS Text) ===== */
 .middle {
     width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.middle h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ===== Fighter Name Input and Label ===== */
 .name-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.name-container p {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .name-box {
-    height: 1rem;
-    margin-left: 10px;
+    padding: 5px;
+    width: 150px;
+    text-align: center;
 }
 
+/* ===== "Get" Button Styles (Visible and Not Fully White) ===== */
+button {
+    display: block;  
+    margin-top: 10px; 
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid #ffcc00; /* Gold border */
+    background-color: rgba(255, 204, 0, 0.8); /* Gold-Yellow with opacity */
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out, transform 0.1s;
+}
+
+button:hover {
+    background-color: rgba(255, 204, 0, 1); /* Fully gold on hover */
+    transform: scale(1.05);
+}
+
+/* ===== Fighter Details: Image and Stats ===== */
+.fighter-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Fighter Image */
+.fighter-details-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    object-fit: cover;
+}
+
+/* Fighter Statistics Text Area */
 .fighter-details-text {
-    border: 1px solid black; 
+    border: 1px solid #fff;
     height: 20rem;
-    width: 50%;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 5px;
+    resize: none;
+    text-align: left;
 }

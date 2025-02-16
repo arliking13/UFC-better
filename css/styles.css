@@ -128,42 +128,74 @@ nav ul li a:hover {
 
 /* =============== BETS PAGE STYLES =============== */
 
-/* ========== Fighter selection (left and right input fields) ========== */
-.fighter {
-    width: 40%;
+/* ===== Layout: Arrange Fighters and Middle Section ===== */
+main {
+    display: flex;
+    justify-content: space-between;  /* Space out left, middle, and right */
+    align-items: flex-start;         /* Align items to the top */
+    width: 100%;
+    max-width: 1200px;               /* Control maximum width for better centering */
+    margin: 20px auto;
 }
 
+/* ===== Left and Right Fighter Sections ===== */
+.fighter {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center contents inside each fighter section */
+    text-align: center;
+}
+
+/* ===== Middle Section (VS Text) ===== */
+.middle {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.middle h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ===== Fighter Name Input and Label ===== */
 .name-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.name-container p {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .name-box {
-    height: 1rem;
-    margin-left: 10px;
-}
-
-/* Left fighter selection */
-#left-name-box {
+    padding: 5px;
     width: 150px;
+    text-align: center;
 }
 
-/* ========== "Get" button styles ========== */
+/* ===== "Get" Button ===== */
 button {
-    padding: 5px 10px;
+    padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
     border: 1px solid #fff;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
+    transition: background-color 0.2s ease-in-out;
 }
 
 button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ========== Fighter details (image, statistics, text area) ========== */
+/* ===== Fighter Details: Image and Stats ===== */
 .fighter-details-container {
     display: flex;
     flex-direction: column;
@@ -171,33 +203,26 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Fighter image */
+/* Fighter Image */
 .fighter-details-container img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    object-fit: cover;
 }
 
-/* Fighter statistics text area */
+/* Fighter Statistics Text Area */
 .fighter-details-text {
-    border: 1px solid #fff; 
+    border: 1px solid #fff;
     height: 20rem;
-    width: 50%;
+    width: 80%;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 5px;
-}
-
-/* ========== Middle section ("VS" text) ========== */
-.middle {
-    width: 20%;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    resize: none;
+    text-align: left;
 }
 
 /* =============== RESULTS PAGE STYLES =============== */
