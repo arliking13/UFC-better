@@ -1,6 +1,6 @@
-/**
+/*
  * Places a bet and updates user balance
- */
+ 
 function placeBet(fight, fighter) {
     let amount = prompt(`Enter your bet amount for ${fighter}:`);
     if (!amount || isNaN(amount) || amount <= 0) {
@@ -30,9 +30,7 @@ function placeBet(fight, fighter) {
     }
 }
 
-/**
- * Loads placed bets from local storage
- */
+
 function loadBets() {
     let betList = document.getElementById("bet-list");
     let bets = JSON.parse(localStorage.getItem("bets")) || [];
@@ -56,3 +54,4 @@ document.addEventListener("DOMContentLoaded", function () {
         loadBets();
     }
 });
+*/

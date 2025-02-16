@@ -49,7 +49,7 @@ if (localStorage.getItem("fights")) {
 //console.log(fights);
 
 window.addEventListener("beforeunload", function () {
-    console.log("❌ Tab is closing. Saving data...");
+    console.log("tab closing");
     // save data to local storage
     localStorage.setItem("user_data", JSON.stringify(user_data));
     localStorage.setItem("fights", JSON.stringify(fights));
