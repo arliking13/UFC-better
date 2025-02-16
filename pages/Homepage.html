@@ -124,7 +124,7 @@
             const username = localStorage.getItem('username');
             const avatar = localStorage.getItem('avatar');
             document.getElementById('profile-name').textContent = `Name: ${username}`;
-            document.getElementById('profile-avatar').src = avatar;
+            document.getElementById('profile-avatar').src = user_data.avatar_path;
         }
     </script>
 </body>
