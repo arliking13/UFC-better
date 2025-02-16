@@ -12,7 +12,7 @@
             font-family: 'HIAIRPORT FFM', sans-serif;
         }
         .navigation-bar {
-            background-color: #FFD700; /* golden yellow */
+            background-color: #FFD700;
             padding: 10px;
             display: flex;
             justify-content: space-between;
@@ -25,15 +25,15 @@
         .nav-links a {
             color: black;
             text-decoration: none;
-            margin-left: 20px; /* Add space between each element */
+            margin-left: 20px; 
         }
         .profile-section {
             display: flex;
             align-items: center;
-            margin-right: 20px; /* Add space between elements */
+            margin-right: 20px; 
         }
         .profile-section a {
-            margin-left: 20px; /* Add space between History and Home links */
+            margin-left: 20px; 
         }
         .profile-section img {
             margin-right: 10px;
@@ -223,7 +223,7 @@
                     return;
                 }
 
-                let odds = getOdds();  // Get calculated odds (sum to 1, under 1)
+                let odds = getOdds();  
                 let bet_money = parseFloat(document.getElementById('bet-box').value);
                 if (isNaN(bet_money)) {
                     alert("Please input float value money into the bet.");
@@ -250,10 +250,8 @@
                 let profit = 0;
 
                 if (betting_for === side) {
-                    // ✅ Winning Bet: Pays based on fair inverse probability
                     profit = bet_money * (1 / probability) - bet_money;
                 } else {
-                    // ✅ Losing Bet: Partial refund based on underdog odds
                     profit = -bet_money * (1 - opponent_probability);
                 }
 
@@ -266,7 +264,6 @@
             }
 
             function generateResult(winner, loser) {
-                // 🔹 Define possible fight outcomes
                 const outcomes = [
                     `${winner} knocked out ${loser} by hook`,
                     `${winner} knocked out ${loser} by jab`,
@@ -277,13 +274,11 @@
                     `${loser} lost by foul`
                 ];
 
-                // 🔹 40% chance for decision win, 60% for other outcomes
-                let randomChance = Math.random(); // Generates a number between 0 and 1
+                let randomChance = Math.random();
 
                 if (randomChance < 0.40) {
                     return `${winner} won by majority decision`;
                 } else {
-                    // Pick a random outcome from the remaining 60%
                     let randomIndex = Math.floor(Math.random() * outcomes.length);
                     return outcomes[randomIndex];
                 }
@@ -307,32 +302,25 @@
                 function getFighterScore(fighter) {
                     let score = 0;
 
-                    // 🔹 1. Win-Loss Record (Primary Factor)
-                    score += fighter.wins * 5;  // 5 points per win
+                    score += fighter.wins * 5;  
                     score -= fighter.losses * 3; // -3 points per loss
 
-                    // 🔹 2. Age Factor (Prime Age: 25-34)
                     if (fighter.age >= 25 && fighter.age <= 34) {
-                        score += 10; // Fighters in their prime get +10
+                        score += 10; // fighters in their prime get +10
                     } else {
-                        score -= 5;  // Fighters outside prime lose -5
+                        score -= 5;  // fighters outside prime lose -5
                     }
 
-                    // 🔹 3. Height & Reach Advantage (Each inch = +0.5 points)
                     score += (fighter.height * 0.5);
                     score += (fighter.reach * 0.5);
-
-                    // 🔹 4. Weight Factor (Balanced weight is good)
-                    score += (fighter.weight * 0.2); // Higher weight gives slight advantage
+                    score += (fighter.weight * 0.2); 
                     
-                    return Math.max(1, score); // Ensure score is at least 1
+                    return Math.max(1, score);
                 }
 
-                // 🔹 Get scores for both fighters
                 let leftScore = getFighterScore(temp_fighter_left);
                 let rightScore = getFighterScore(temp_fighter_right);
 
-                // 🔹 Convert scores to probabilities (Sum = 1)
                 let totalScore = leftScore + rightScore;
                 let left_fighter_chance = leftScore / totalScore;
                 let right_fighter_chance = rightScore / totalScore;
