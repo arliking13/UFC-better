@@ -51,10 +51,10 @@ main {
     --bet-container-margin-top: 0px;  /* Adjust bet container position */
     --bet-container-gap: 10px;        /* Adjust gap between "Bet: $" and input */
 
-    --win-button-margin-top: 35px;  /* Move win buttons up/down */
+    --win-button-margin-top: 70px;  /* Move win buttons up/down */
     --win-button-gap: 20px;         /* Adjust space between win buttons */
 
-    --odds-container-margin-top: 15px; /* Adjust odds section positioning */
+    --odds-container-margin-top: 0px; /* Adjust odds section positioning */
     --odds-container-gap: 10px;        /* Space between odds elements */
 
     --odd-text-padding-x: 30px;   /* Adjust padding inside the odds section */
@@ -181,8 +181,14 @@ main {
     color: #fff;
 }
 
-/* ===== "Get" Button Styles (Positioning Control) ===== */
-.get-button {
+/* ===== Define Positioning Variables ===== */
+:root {
+    --get-button-margin-top: -15px;  /* Default margin for Get button */
+    --get-button-margin-bottom: 0px; /* Default bottom margin */
+}
+
+/* ===== "Get" Button Styles (Added Positioning Control) ===== */
+button {
     padding: 10px 14px;
     font-size: 14px;
     cursor: pointer;
@@ -193,14 +199,13 @@ main {
     transition: background-color 0.2s ease-in-out, transform 0.1s;
     border-radius: 10px;
     
-    /* Positioning Controls */
-    margin-top: var(--get-button-margin-top, 10px);  /* Default spacing below input */
-    margin-left: var(--get-button-margin-left, 0px); /* Custom left spacing */
-    margin-right: var(--get-button-margin-right, 0px); /* Custom right spacing */
-    margin-bottom: var(--get-button-margin-bottom, 0px); /* Custom bottom spacing */
+    /* Ability to move button up/down */
+    margin-top: var(--get-button-margin-top);
+    margin-bottom: var(--get-button-margin-bottom);
 }
 
-.get-button:hover {
+/* Hover effect */
+button:hover {
     background-color: rgba(255, 204, 0, 1);
     transform: scale(1.05);
 }
@@ -211,14 +216,31 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* ===== Fighter Details: Image and Stats (Side by Side) ===== */
+/* ===== Name Input Box (Ensures it Stays in Place) ===== */
+.name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px; /* ✅ Ensures space below Name */
+}
+
+.name-box {
+    padding: 8px;
+    width: 180px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* ===== Fighter Details (Ensures They Stay in Place) ===== */
 .fighter-details-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    gap: 20px; /* More gap between image and stats */
+    gap: 20px;
 }
 
 /* Fighter Image */
@@ -229,24 +251,29 @@ button:hover {
     border: 1px solid #fff;
     object-fit: cover;
     display: block;
-    background-color: rgba(255, 255, 255, 0.1);
+    
+    /* ✅ Set background color to pure white */
+    background-color: #ffffff; /* White */
 }
 
-/* Fighter Statistics Text Area */
+
+
+/* Fighter Statistics Text Area (Fixed Size & No Resizing) */
 .fighter-details-text {
     border: 1px solid #fff;
-    min-height: 12rem;
-    min-width: 50px;
-    height: 20rem;
-    width: 80%;
+    height: 315px;   /* ✅ Fixed height */
+    width: 200px;    /* ✅ Fixed width */
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 10px;
-    resize: both;
-    overflow: auto;
+    overflow: auto;  /* ✅ Keeps scrollbar if needed */
     text-align: left;
     border-radius: 10px;
+
+    /* ❌ Remove Resizing */
+    resize: none;
 }
+
 
 /* ===== Ensuring Consistent Rounded Edges for All Containers ===== */
 .fighter-details-container, .fighter {
