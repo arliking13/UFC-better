@@ -1,6 +1,21 @@
 /* =============== BETS PAGE STYLES =============== */
 
 /* ===== Page Background: RED ===== */
+/* Import the Hi Airport font */
+@import url('https://fonts.cdnfonts.com/css/hiairport');
+
+/* Apply the font to the entire page */
+body {
+    font-family: 'Hi Airport', sans-serif;
+    background-color: #8B0000; /* Dark Red */
+    color: #fff;
+}
+
+/* Ensure all text elements use the font */
+h1, h2, h3, h4, h5, h6, p, button, input, textarea, label {
+    font-family: 'Hi Airport', sans-serif;
+}
+
 body {
     background-color: #8B0000; /* Dark Red */
     color: #fff;
@@ -28,7 +43,7 @@ main {
 
 /* ===== Define Variables for Position Control ===== */
 :root {
-    --middle-margin-top: -75px;   /* Adjust middle section position */
+    --middle-margin-top: -65px;   /* Adjust middle section position */
     --middle-margin-left: 0px;    /* Move left/right */
 
     --vs-text-margin-bottom: 15px; /* Adjust VS text spacing */
@@ -36,7 +51,7 @@ main {
     --bet-container-margin-top: 0px;  /* Adjust bet container position */
     --bet-container-gap: 10px;        /* Adjust gap between "Bet: $" and input */
 
-    --win-button-margin-top: 10px;  /* Move win buttons up/down */
+    --win-button-margin-top: 35px;  /* Move win buttons up/down */
     --win-button-gap: 20px;         /* Adjust space between win buttons */
 
     --odds-container-margin-top: 15px; /* Adjust odds section positioning */
@@ -166,8 +181,8 @@ main {
     color: #fff;
 }
 
-/* ===== "Get" Button Styles (Added Margin) ===== */
-button {
+/* ===== "Get" Button Styles (Positioning Control) ===== */
+.get-button {
     padding: 10px 14px;
     font-size: 14px;
     cursor: pointer;
@@ -177,8 +192,19 @@ button {
     font-weight: bold;
     transition: background-color 0.2s ease-in-out, transform 0.1s;
     border-radius: 10px;
-    margin-top: 15px; /* Increased spacing below input */
+    
+    /* Positioning Controls */
+    margin-top: var(--get-button-margin-top, 10px);  /* Default spacing below input */
+    margin-left: var(--get-button-margin-left, 0px); /* Custom left spacing */
+    margin-right: var(--get-button-margin-right, 0px); /* Custom right spacing */
+    margin-bottom: var(--get-button-margin-bottom, 0px); /* Custom bottom spacing */
 }
+
+.get-button:hover {
+    background-color: rgba(255, 204, 0, 1);
+    transform: scale(1.05);
+}
+
 
 button:hover {
     background-color: rgba(255, 204, 0, 1);
