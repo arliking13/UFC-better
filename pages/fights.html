@@ -46,11 +46,12 @@
         document.getElementById("net-profit-text").textContent = "Net Profit: $" + parseFloat(user_data.net_profit).toFixed(2);
 
         if (fights) {
+            let temp_fights = fights.slice().reverse()
             const temp = document.getElementById("fights-template");
             let container = document.getElementById("fights-container");
 
-            for (let i = 0; i < fights.length; i++) {
-                let f = fights[i];
+            for (let i = 0; i < temp_fights.length; i++) {
+                let f = temp_fights[i];
                 let clone = document.importNode(temp.content, true);
 
                 clone.querySelector(".fight-bar").id = i.toString();

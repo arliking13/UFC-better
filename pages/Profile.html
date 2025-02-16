@@ -121,6 +121,15 @@
             document.getElementById('profile-avatar').src = user_data.avatar_path;
         }
 
+        function selectAvatar(imgElement) {
+            const avatars = document.querySelectorAll('.avatar-options img');
+            avatars.forEach(avatar => {
+                avatar.classList.remove('selected');
+            });
+            imgElement.classList.add('selected');
+            selectedAvatar = imgElement.src;
+        }
+
         function createProfile() {
             const username = document.getElementById('username').value;
             if (username && selectedAvatar) {

@@ -55,14 +55,36 @@
             display: inline;
             font-size: 32px; /* Increased font size for Featured Games */
         }
-        .content ul li {
-            font-size: 20px; /* Increased font size for UFC games */
+        .content ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding-left: 0;
+        }
+        .content ul li::before {
+            content: "⚄ "; /* Add arrow before each list item */
+            color: white; /* Set arrow color to white */
+            padding-left: 28px; /* Move arrow to the right */
         }
         .content p {
             font-size: 24px; /* Increased font size for 50% welcome bonus */
         }
-        .quick-links h3, .quick-links ul li {
-            font-size: 18px; /* Increased font size for quick links */
+        .quick-links h3 {
+            font-size: 22px; /* Increased font size for Quick Links */
+        }
+        .quick-links ul li {
+            font-size: 22px; /* Increased font size for UFC Bets Tracker */
+        }
+        .quick-links ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding-left: 0;
+        }
+        .quick-links ul li::before {
+            content: "⚄ "; /* Add arrow before each list item */
+            color: white; /* Set arrow color to white */
+            padding-left: 10px; /* Move arrow to the right */
+        }
+        .content ul li a {
+            font-size: 24px; /* Increase font size of UFC Bets */
+            padding-left: 14px; /* Move UFC Bets to the right */
         }
         .footer {
             position: relative;
@@ -97,13 +119,13 @@
             <h2>Welcome to UFC Bet Tracker!</h2>
             <p><img src="../assets/Dice.gif" alt="Pixelated Dice" class="dice-icon"> Featured Games:</p>
             <ul>
-                <li><a href="bets.html" style="color: white; text-decoration: none;">UFC Bets</a></li> <!-- Add the link to UFC Bets -->
+                <li><a href="bets.html" style="color: white; text-decoration: underline;">UFC Bets</a></li> <!-- Added underline to UFC Bets -->
             </ul>
         </div>
         <div class="quick-links sidebar">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="bets.html" style="color: white; text-decoration: none;">UFC Bets Tracker</a></li> <!-- Add the link to UFC Bets Tracker -->
+                <li><a href="bets.html" style="color: white; text-decoration: underline;">UFC Bets Tracker</a></li> <!-- Added underline to UFC Bets Tracker -->
             </ul>
         </div>
     </div>
