@@ -1,19 +1,108 @@
-main {
-    width: 100%;
-    justify-items: center;
+/* fights.css */
+@import url('https://fonts.cdnfonts.com/css/hiairport');
+
+body {
+    font-family: 'HIAIRPORT FFMCOND', sans-serif;
+    background: linear-gradient(to bottom, white, black); /* White to black gradient */
+    margin: 0;
+    padding: 0;
 }
 
-.fights-bar {
-    width: 80%;
-    border: 3px solid black;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar {
+    background-color: goldenrod; /* Golden yellow (not bright) */
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'HIAIRPORTARRIVAL', sans-serif;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'HIAIRPORT FFM', sans-serif;
+}
+
+.matches-text, .net-profit-text {
+    font-size: 18px;
+    margin: 10px 0;
+    font-family: 'HIAIRPORTARRIVAL', sans-serif;
+}
+
+.fights-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.fight-bar {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.top-row, .middle-row, .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: 'HIAIRPORTDEPARTURE', sans-serif;
+}
+
+.top-row p, .middle-row p, .bottom-row p {
+    margin: 0;
+}
+
+.winner-name {
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.loser-name {
+    font-weight: bold;
+    color: #f44336;
+}
+
+.VS-text {
+    flex: 0 0 auto;
+    font-weight: bold;
+    text-align: center;
 }
 
 .top-row {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adjust the gap as needed */
 }
 
-.middle-row {
-    display: flex;
-    flex-direction: row;
+.winner-name, .loser-name {
+    flex: 1;
+    text-align: center;
+}
+
+.bet-money, .profit-value, .result-text {
+    font-size: 14px;
+    color: #555;
 }
