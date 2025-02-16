@@ -155,6 +155,9 @@
                         else {
                             // details of fighter
                             temp_fighter_left = fighter;
+                            if (temp_fighter_right != null) {
+                                let whatever = getOdds();
+                            }
                             document.getElementById("fighter-details-img-left").src = fighter['imgUrl'];
 
                             details_box.textContent += fighter['name'] + ' (' + fighter['nickname'] + ')\n'; 
@@ -185,6 +188,9 @@
                         else {
                             // details of fighter
                             temp_fighter_right = fighter;
+                            if (temp_fighter_left != null) {
+                                let whatever = getOdds();
+                            }
                             document.getElementById("fighter-details-img-right").src = fighter['imgUrl'];
 
                             details_box.textContent += fighter['name'] + ' (' + fighter['nickname'] + ')\n'; 
@@ -198,10 +204,6 @@
                         }
                     })
                     .catch(error => console.error("Error: ", error));
-                }
-
-                if (temp_fighter_left != null && temp_fighter_right != null) {
-                    let whatever = getOdds();
                 }
             }
 
