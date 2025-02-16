@@ -3,48 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UFC Pixel Casino</title>
+    <title>UFC Bet Tracker</title>
     <link href="https://fonts.cdnfonts.com/css/hiairport" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/hiairport');
         
         body {
             font-family: 'HIAIRPORT FFMCOND', sans-serif;
-            background: url('path-to-pixel-art-background.png') no-repeat center center fixed;
+            background: url('path-to-your-background-image.jpg') no-repeat center center fixed; /* Add your image path here */
             background-size: cover;
-            color: #fff;
+            color: #FFFFFF; /* White text */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .header, .footer, .sidebar, .main {
-            padding: 10px;
-            border: 1px solid #333;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .header {
+        .header, .footer {
+            background-color: #000000; /* Black header and footer */
+            color: #DAA520; /* Goldenrod text */
+            padding: 20px;
             text-align: center;
-            font-size: 24px;
-            font-family: 'HIAIRPORT FFM', sans-serif;
+            border-bottom: 3px solid #8B0000; /* Red border for header */
         }
         .main {
             display: flex;
             justify-content: space-between;
-        }
-        .profile, .quick-links {
-            width: 200px;
-        }
-        .content {
+            flex-wrap: wrap;
             flex-grow: 1;
-            padding: 10px;
+            padding: 20px;
+        }
+        .sidebar, .content {
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            margin: 10px;
+            padding: 20px;
         }
         .pixel-art-icon {
-            width: 32px;
-            height: 32px;
+            width: 100px; /* Increased size for avatar */
+            height: 100px; /* Increased size for avatar */
+        }
+        .profile p {
+            font-size: 20px; /* Increased font size for name and balance */
+        }
+        .dice-icon {
+            width: 32px; /* Increased size for dice image */
+            height: 32px; /* Increased size for dice image */
+            vertical-align: middle; /* Aligns dice icon to the middle */
+        }
+        .content h2 {
+            display: inline;
+            font-size: 32px; /* Increased font size for Featured Games */
+        }
+        .content ul li {
+            font-size: 20px; /* Increased font size for UFC games */
+        }
+        .content p {
+            font-size: 24px; /* Increased font size for 50% welcome bonus */
+        }
+        .quick-links h3, .quick-links ul li {
+            font-size: 18px; /* Increased font size for quick links */
+        }
+        .footer {
+            text-align: center;
+        }
+        .contact-info, .social-media {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body onload="loadProfile()">
-    <script src="../js/script.js"></script>
     <div class="header">
-        <h1>UFC Pixel Casino</h1>
+        <h1>UFC Bet Tracker</h1>
     </div>
     <div class="main">
         <div class="profile sidebar">
@@ -53,8 +83,8 @@
             <p>Balance: $1000</p>
         </div>
         <div class="content">
-            <h2>Welcome to UFC Pixel Casino!</h2>
-            <p><img src="path-to-pixelated-dice.png" alt="Pixelated Dice" class="pixel-art-icon"> Featured Games:</p>
+            <h2>Welcome to UFC Bet Tracker!</h2>
+            <p><img src="C:/Gambling/Dice.png" alt="Pixelated Dice" class="dice-icon"> Featured Games:</p>
             <ul>
                 <li>UFC Game [Pixelated Thumbnail]</li>
             </ul>
@@ -72,13 +102,15 @@
     </div>
     <div class="footer">
         <h3>Contact Us:</h3>
-        <p>Email: support@ufcpixelcasino.com</p>
-        <p>Phone: 123-456-7890</p>
-        <p>
+        <div class="contact-info">
+            <p>Email: support@ufcbettracker.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+        <div class="social-media">
             <img src="path-to-social-icon.png" alt="Social Icon" class="pixel-art-icon">
             <img src="path-to-social-icon.png" alt="Social Icon" class="pixel-art-icon">
             <img src="path-to-social-icon.png" alt="Social Icon" class="pixel-art-icon">
-        </p>
+        </div>
     </div>
 
     <script>
