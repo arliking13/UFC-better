@@ -23,6 +23,8 @@ else {
     user_data = new UserData(null, null, 0);
 }
 
+console.log(user_data);
+
 window.addEventListener("beforeunload", function () {
     console.log("❌ Tab is closing. Saving data...");
     // save data to local storage
