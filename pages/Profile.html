@@ -83,8 +83,8 @@
         function createProfile() {
             const username = document.getElementById('username').value;
             if (username && selectedAvatar) {
-                localStorage.setItem('username', username);
-                localStorage.setItem('avatar', selectedAvatar);
+                user_data.username = username;
+                user_data.avatar_path = selectedAvatar;
                 window.location.href = 'Homepage.html';
             } else {
                 alert('Please enter a username and select an avatar.');
