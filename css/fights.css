@@ -6,6 +6,7 @@ body {
     background: linear-gradient(to bottom, white, black); /* White to black gradient */
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 header {
