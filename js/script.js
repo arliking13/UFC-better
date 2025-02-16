@@ -13,7 +13,19 @@ class UserData {
     }
 }
 
+class Fight {
+    constructor(fighter1, fighter2, winner, result, bet_amount, profit) {
+        this.fighter1 = fighter1;
+        this.fighter2 = fighter2;
+        this.winner = winner;
+        this.result = result;
+        this.bet_amount = bet_amount;
+        this.profit = profit;
+    }
+}
+
 let user_data = null;
+let fights = [];
 
 if (localStorage.getItem("user_data")) {
     user_data_json = JSON.parse(localStorage.getItem("user_data"));
@@ -23,12 +35,22 @@ else {
     user_data = new UserData(null, null, 0);
 }
 
+if (localStorage.getItem("fights")) {
+    let fights_json = JSON.parse(localStorage.getItem("fights"));
+    fights_json.forEach(f => {
+        fights.push(new Fight(f['fighter1'], f['fighter2'], f['winner'], f['result'], f['bet_amount'], f['profit']))
+    });
+}
+
+
 console.log(user_data);
+console.log(fights);
 
 window.addEventListener("beforeunload", function () {
     console.log("❌ Tab is closing. Saving data...");
     // save data to local storage
     localStorage.setItem("user_data", JSON.stringify(user_data));
+    localStorage.setItem("fights", JSON.stringify(fights));
 });
 
 
