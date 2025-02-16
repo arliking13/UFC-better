@@ -29,7 +29,8 @@ let fights = [];
 
 if (localStorage.getItem("user_data")) {
     user_data_json = JSON.parse(localStorage.getItem("user_data"));
-    user_data = new UserData(user_data_json['username'], user_data_json['avatar_path'], user_data_json['net_profit']); 
+    console.log(user_data_json);
+    user_data = new UserData(user_data_json['username'], user_data_json['avatar_path'], parseFloat(user_data_json['net_profit'])); 
 }
 else {
     user_data = new UserData(null, null, 0);
@@ -37,6 +38,7 @@ else {
 
 if (localStorage.getItem("fights")) {
     let fights_json = JSON.parse(localStorage.getItem("fights"));
+    console.log(fights_json);
     fights_json.forEach(f => {
         fights.push(new Fight(f['fighter1'], f['fighter2'], f['winner'], f['result'], f['bet_amount'], f['profit']))
     });
@@ -44,7 +46,7 @@ if (localStorage.getItem("fights")) {
 
 
 //console.log(user_data);
-console.log(fights);
+//console.log(fights);
 
 window.addEventListener("beforeunload", function () {
     console.log("❌ Tab is closing. Saving data...");
