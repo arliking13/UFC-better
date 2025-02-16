@@ -43,7 +43,7 @@ if (localStorage.getItem("fights")) {
 }
 
 
-console.log(user_data);
+//console.log(user_data);
 console.log(fights);
 
 window.addEventListener("beforeunload", function () {
