@@ -15,9 +15,6 @@
             </div>
             <div class="nav-links">
                 <a href="Homepage.html">Home</a>
-                <a href="About.html">About</a>
-                <a href="Contact.html">Contact</a>
-                <a href="Services.html">Services</a>
             </div>
         </nav>
     </header>
@@ -47,7 +44,7 @@
                 <input type="checkbox" id="toggleSwitch" onchange="updateSwitch()">
             </div>
 
-            <button class="sim-button" onclick="simulateWin()">Simulate Fight</button>
+            <button class="win-button" onclick="simulateWin()">Simulate Fight</button>
 
             <div class="win-button-container">
                 <button class="win-button" onclick="determineWin('left')">Left Win</button>
@@ -202,10 +199,6 @@
                 }
 
                 console.log("Left Odds:", odds['left_fighter_chance']);
-                console.log("Right Odds:", odds['right_fighter_chance']);
-
-                let probability = side === "left" ? odds['left_fighter_chance'] : odds['right_fighter_chance'];
-                let opponent_probability = side === "left" ?  <console.log("Left Odds:", odds['left_fighter_chance']);
                 console.log("Right Odds:", odds['right_fighter_chance']);
 
                 let probability = side === "left" ? odds['left_fighter_chance'] : odds['right_fighter_chance'];
