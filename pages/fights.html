@@ -30,6 +30,7 @@
                 <p class="loser-name"></p>
             </div>
             <div class="middle-row">
+                <p class="bet-money"></p>
                 <p class="profit-value"></p>
             </div>
             <div class="bottom-row">
@@ -53,6 +54,7 @@
                 clone.querySelector(".fight-bar").id = i.toString();
                 clone.querySelector(".winner-name").textContent = f.winner;
                 clone.querySelector(".loser-name").textContent = f.winner == f.fighter1 ? f.fighter2 : f.fighter1;
+                clone.querySelector(".bet-money").textContent = "Bet Placed: $" + f.bet_amount;
                 clone.querySelector(".profit-value").textContent = "Profit: $" + f.profit;
                 clone.querySelector(".result-text").textContent = f.result;
                 container.appendChild(clone);
