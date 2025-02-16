@@ -55,10 +55,10 @@ main {
     --betting-container-margin-top: -15px;  /* Adjust betting section positioning */
     --betting-container-gap: 10px;         /* Space between text and checkbox */
 
-    --simulate-button-margin-top: 20px;   /* Adjust Simulate Fight button position */
+    --sim-button-margin-top: -20px;   /* Adjust Simulate Fight button position */
    
 
-    --win-button-margin-top: 20px;   /* Move win buttons up/down */
+    --win-button-margin-top: 50px;   /* Move win buttons up/down */
     --win-button-gap: 90px;          /* Adjust space between win buttons */
 
     --odds-container-margin-top: 15px; /* Adjust odds section positioning */
@@ -114,7 +114,7 @@ main {
 /* Betting Toggle Section */
 .betting-for-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: var(--betting-container-gap);
     margin-top: var(--betting-container-margin-top);
@@ -128,7 +128,7 @@ main {
 }
 
 /* ✅ Fix Simulate Fight Button Positioning */
-.simulate-button {
+.sim-button {
     padding: 12px 18px;
     font-size: 16px;
     cursor: pointer;
@@ -140,7 +140,10 @@ main {
 
     position: relative;  /* ✅ Ensures independent movement */
     top: var(--simulate-button-margin-top);  /* ✅ Moves freely */
+
+    margin-top: 10px;  /* ✅ Adds spacing below */
 }
+
 
 
 /* Win Buttons */
