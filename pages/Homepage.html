@@ -10,20 +10,20 @@
         
         body {
             font-family: 'HIAIRPORT FFMCOND', sans-serif;
-            background: url('../assets/Retro.gif') no-repeat center center fixed; /* Add your GIF path here */
+            background: url('../assets/Retro.gif') no-repeat center center fixed;
             background-size: cover;
-            color: #FFFFFF; /* White text */
+            color: #FFFFFF;
             margin: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         .header, .footer {
-            background-color: #000000; /* Black header and footer */
-            color: #DAA520; /* Goldenrod text */
+            background-color: #000000;
+            color: #DAA520;
             padding: 20px;
             text-align: center;
-            border-bottom: 3px solid #8B0000; /* Red border for header */
+            border-bottom: 3px solid #8B0000;
         }
         .main {
             display: flex;
@@ -33,65 +33,65 @@
             padding: 20px;
         }
         .sidebar, .content {
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             margin: 10px;
             padding: 20px;
         }
         .pixel-art-icon {
-            width: 100px; /* Increased size for avatar */
-            height: 100px; /* Increased size for avatar */
+            width: 100px;
+            height: 100px;
         }
         .profile p {
-            font-size: 20px; /* Increased font size for name and balance */
+            font-size: 20px;
         }
         .dice-icon {
-            width: 32px; /* Increased size for dice image */
-            height: 32px; /* Increased size for dice image */
-            vertical-align: middle; /* Aligns dice icon to the middle */
+            width: 32px;
+            height: 32px;
+            vertical-align: middle;
         }
         .content h2 {
             display: inline;
-            font-size: 32px; /* Increased font size for Featured Games */
+            font-size: 32px;
         }
         .content ul {
-            list-style-type: none; /* Remove default bullet points */
+            list-style-type: none;
             padding-left: 0;
         }
         .content ul li::before {
-            content: "⚄ "; /* Add arrow before each list item */
-            color: white; /* Set arrow color to white */
-            padding-left: 28px; /* Move arrow to the right */
+            content: "⚄ ";
+            color: white;
+            padding-left: 28px;
         }
         .content p {
-            font-size: 24px; /* Increased font size for 50% welcome bonus */
+            font-size: 24px;
         }
         .quick-links h3 {
-            font-size: 22px; /* Increased font size for Quick Links */
+            font-size: 22px;
         }
         .quick-links ul li {
-            font-size: 22px; /* Increased font size for UFC Bets Tracker */
+            font-size: 22px;
         }
         .quick-links ul {
-            list-style-type: none; /* Remove default bullet points */
+            list-style-type: none;
             padding-left: 0;
         }
         .quick-links ul li::before {
-            content: "⚄ "; /* Add arrow before each list item */
-            color: white; /* Set arrow color to white */
-            padding-left: 10px; /* Move arrow to the right */
+            content: "⚄ ";
+            color: white;
+            padding-left: 10px;
         }
         .content ul li a {
-            font-size: 24px; /* Increase font size of UFC Bets */
-            padding-left: 14px; /* Move UFC Bets to the right */
+            font-size: 24px;
+            padding-left: 14px;
         }
         .footer {
             position: relative;
         }
         .contact-info {
             margin-top: 10px;
-            font-size: 20px; /* Increased font size for Contact Us information */
+            font-size: 20px;
         }
         .social-media {
             position: absolute;
@@ -99,8 +99,15 @@
             left: 10px;
         }
         .social-media img {
-            width: 260px; /* Adjusted width for social icon */
-            height: 140px; /* Adjusted height for social icon */
+            width: 260px;
+            height: 140px;
+        }
+        .teamwork-gif {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 150px; 
+            height: auto;
         }
     </style>
 </head>
@@ -119,13 +126,13 @@
             <h2>Welcome to UFC Bet Tracker!</h2>
             <p><img src="../assets/Dice.gif" alt="Pixelated Dice" class="dice-icon"> Featured Games:</p>
             <ul>
-                <li><a href="bets.html" style="color: white; text-decoration: underline;">UFC Bets</a></li> <!-- Added underline to UFC Bets -->
+                <li><a href="bets.html" style="color: white; text-decoration: underline;">UFC Bets</a></li>
             </ul>
         </div>
         <div class="quick-links sidebar">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="bets.html" style="color: white; text-decoration: underline;">UFC Bets Tracker</a></li> <!-- Added underline to UFC Bets Tracker -->
+                <li><a href="bets.html" style="color: white; text-decoration: underline;">UFC Bets Tracker</a></li>
             </ul>
         </div>
     </div>
@@ -138,6 +145,7 @@
         <div class="social-media">
             <img src="../assets/Social_Logo.gif" alt="Social Icon">
         </div>
+        <img src="../assets/Teamwork.gif" alt="Teamwork" class="teamwork-gif"> 
     </div>
 
     <script>
