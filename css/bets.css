@@ -9,10 +9,10 @@ body {
 /* ===== Layout: Arrange Fighters and Middle Section ===== */
 main {
     display: flex;
-    justify-content: space-between;  
-    align-items: flex-start;         
+    justify-content: space-between;
+    align-items: flex-start;  
     width: 100%;
-    max-width: 1200px;              
+    max-width: 1200px;
     margin: 20px auto;
 }
 
@@ -56,53 +56,69 @@ main {
     padding: 5px;
     width: 150px;
     text-align: center;
+    border-radius: 10px;  /* ✅ Rounded edges for input fields */
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
-/* ===== "Get" Button Styles (Visible and Not Fully White) ===== */
+/* ===== "Get" Button Styles (Rounded Corners) ===== */
 button {
-    display: block;  
-    margin-top: 10px; 
     padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
-    border: 2px solid #ffcc00; /* Gold border */
-    background-color: rgba(255, 204, 0, 0.8); /* Gold-Yellow with opacity */
+    border: 2px solid #ffcc00;
+    background-color: rgba(255, 204, 0, 0.8);
     color: black;
     font-weight: bold;
     transition: background-color 0.2s ease-in-out, transform 0.1s;
+    border-radius: 10px;  /* ✅ Consistent rounded edges */
 }
 
 button:hover {
-    background-color: rgba(255, 204, 0, 1); /* Fully gold on hover */
+    background-color: rgba(255, 204, 0, 1);
     transform: scale(1.05);
 }
 
-/* ===== Fighter Details: Image and Stats ===== */
+/* ===== Fighter Details: Image and Stats (Side by Side) ===== */
 .fighter-details-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-top: 10px;
+    gap: 10px;
 }
 
-/* Fighter Image */
+/* Fighter Image (Ensures Fixed Size Before Image Loads) */
 .fighter-details-container img {
-    width: 120px;
-    height: 120px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    width: 220px;
+    height: 335px;
+    border-radius: 10px;  /* ✅ Consistent rounded edges */
     border: 1px solid #fff;
     object-fit: cover;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Fighter Statistics Text Area */
+/* Fighter Statistics Text Area (Resizable & Rounded) */
 .fighter-details-text {
     border: 1px solid #fff;
-    height: 20rem;
-    width: 80%;
+    min-height: 10rem;  /* ✅ Minimum height (prevents collapsing) */
+    min-width: 40px;   /* ✅ Minimum width (prevents collapsing) */
+    height: 20rem;      /* ✅ Default height */
+    width: 80%;         /* ✅ Default width */
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 5px;
-    resize: none;
+    resize: both;       /* ✅ Allows resizing (height & width) */
+    overflow: auto;     /* ✅ Ensures scrollbar appears if needed */
     text-align: left;
+    border-radius: 10px;  /* ✅ Consistent rounded edges */
+}
+
+
+/* ===== Ensuring Any Other Containers Have Consistent Rounded Edges ===== */
+.fighter-details-container, .fighter {
+    border-radius: 10px; /* ✅ Ensures uniform round edges */
 }
