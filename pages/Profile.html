@@ -3,135 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Agreement</title>
+    <title>Create Your Profile</title>
     <link href="https://fonts.cdnfonts.com/css/hiairport" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/hiairport');
         
         body {
-            font-family: 'HIAIRPORT FFM', sans-serif;
-            background-color: black;
-            color: white;
-            margin: 0;
-        }
-        .header {
-            background: linear-gradient(to bottom, #A3141B, #E52125); /* Using red gradient from the image */
-            padding: 20px;
-            text-align: center;
-            color: white;
             font-family: 'HIAIRPORT FFMCOND', sans-serif;
-            font-size: 24px;
-            position: relative;
+            background: linear-gradient(to bottom, #2F2F2F, #8B0000); /* Gradient from greyish black to dark red */
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .logo {
-            position: absolute;
-            top: 10px; /* Adjust these values to position the logo */
-            left: 10px; /* Adjust these values to position the logo */
-            height: 50px;
-            width: auto;
-        }
-        .container {
+        .profile-container {
+            width: 100%;
+            max-width: 400px;
             padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            font-family: 'HIAIRPORTARRIVAL', sans-serif;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
         }
-        .content {
-            clear: both;
-            padding-top: 20px;
-        }
-        .navigation-bar {
-            background-color: goldenrod;
-            overflow: hidden;
-            font-family: 'HIAIRPORTDEPARTURE', sans-serif;
-        }
-        .navigation-bar a {
-            float: left;
-            display: block;
-            color: white;
+        .profile-header {
             text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+            font-size: 24px;
+            font-family: 'HIAIRPORT FFM', sans-serif;
+            margin-bottom: 20px;
         }
-        .navigation-bar a:hover {
-            background-color: red;
-            color: white;
+        .form-group {
+            margin-bottom: 15px;
         }
-        .agree-button {
+        .form-group label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+        }
+        .avatar-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .avatar-options img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            margin: 5px;
+        }
+        .avatar-options img.selected {
+            border-color: #fff;
+        }
+        .create-button {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
         }
-        button.primary {
+        .create-button button {
+            padding: 10px 20px;
             background-color: goldenrod;
             color: black;
-            padding: 10px 20px;
             border: none;
             cursor: pointer;
-        }
-        button.primary:disabled {
-            background-color: #555;
-            color: white;
+            font-size: 16px;
+            font-family: 'HIAIRPORT FFMCOND', sans-serif;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="C:/Gambling/Logo.png" alt="Logo" class="logo">
-        Terms and Conditions
-    </div>
-    <div class="navigation-bar">
-        <a href="https://www.ufc.com/">UFC</a>
-        <a href="https://www.ufc.com/search?query=about%20community&referrerPageUrl=https://www.google.com/">Communities</a>
-    </div>
-    <div class="container">
-        <div class="content">
-            <h2>UFC Gambling Terms and Conditions</h2>
-            <p>Welcome to the UFC Bet Tracker! Please read these terms and conditions carefully before using our website or services. By accessing or using our site, you agree to be bound by these terms.</p>
-            
-            <h3>1. Eligibility</h3>
-            <p>You must be at least 18 years old to use our gambling services. By registering and using our services, you confirm that you meet this age requirement.</p>
-            
-            <h3>2. Account Registration</h3>
-            <p>To place bets and participate in gambling activities, you must create an account. You agree to provide accurate and complete information during the registration process and keep your account information up-to-date.</p>
-            
-            <h3>3. Responsible Gambling</h3>
-            <p>We promote responsible gambling and provide tools to help you manage your gambling activities. If you believe you have a gambling problem, please seek assistance from appropriate support organizations.</p>
-            
-            <h3>4. Placing Bets</h3>
-            <p>All bets must be placed through your registered account. Bets cannot be canceled or modified once placed. Please review your bet carefully before confirming.</p>
-            
-            <h3>5. Payment and Withdrawals</h3>
-            <p>We accept various payment methods for deposits and withdrawals. Withdrawals are subject to verification and may take up to 5 business days to process. We reserve the right to withhold payments in case of suspected fraud or breach of these terms.</p>
-            
-            <h3>6. Privacy</h3>
-            <p>We are committed to protecting your privacy. Please refer to our Privacy Policy for detailed information on how we collect, use, and protect your personal data.</p>
-            
-            <h3>7. Changes to Terms</h3>
-            <p>We reserve the right to modify these terms at any time. Any changes will be effective immediately upon posting on our website. It is your responsibility to review these terms regularly.</p>
-            
-            <h3>8. Contact Us</h3>
-            <p>If you have any questions or concerns about these terms, please contact us at support@ufcbettracker.com or call 123-456-7890.</p>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Create Your Profile</h1>
         </div>
-        <div class="agree-button">
-            <label>
-                <input type="checkbox" id="agreeCheckbox"> I agree to the terms and conditions
-            </label>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username">
         </div>
-        <div class="agree-button">
-            <button class="primary" onclick="proceedToProfilePage()" disabled id="proceedButton">Proceed</button>
+        <div class="form-group">
+            <label>Choose Avatar:</label>
+            <div class="avatar-options">
+                <img src="C:/Gambling/White_Female.png" alt="Avatar 1" onclick="selectAvatar(this)">
+                <img src="C:/Gambling/Brown_Female.png" alt="Avatar 2" onclick="selectAvatar(this)">
+                <img src="C:/Gambling/Black_Female.png" alt="Avatar 3" onclick="selectAvatar(this)">
+                <img src="C:/Gambling/White_Male.png" alt="Avatar 4" onclick="selectAvatar(this)">
+                <img src="C:/Gambling/Brown_Male.png" alt="Avatar 5" onclick="selectAvatar(this)">
+                <img src="C:/Gambling/Black_Male.png" alt="Avatar 6" onclick="selectAvatar(this)">
+            </div>
+        </div>
+        <div class="create-button">
+            <button onclick="createProfile()">Create Profile</button>
         </div>
     </div>
 
     <script>
-        document.getElementById('agreeCheckbox').addEventListener('change', function() {
-            document.getElementById('proceedButton').disabled = !this.checked;
-        });
+        let selectedAvatar = '';
 
-        function proceedToProfilePage() {
-            window.location.href = 'Profile.html';
+        function selectAvatar(element) {
+            document.querySelectorAll('.avatar-options img').forEach(img => img.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedAvatar = element.src;
+        }
+
+        function createProfile() {
+            const username = document.getElementById('username').value;
+            if (username && selectedAvatar) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('avatar', selectedAvatar);
+                window.location.href = 'Homepage.html';
+            } else {
+                alert('Please enter a username and select an avatar.');
+            }
         }
     </script>
 </body>
