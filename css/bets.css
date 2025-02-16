@@ -43,41 +43,50 @@ main {
 
 /* ===== Define Variables for Position Control ===== */
 :root {
-    --middle-margin-top: -65px;   /* Adjust middle section position */
-    --middle-margin-left: 0px;    /* Move left/right */
+    --middle-margin-top: -90px;  /* Adjust middle section position */
+    --middle-margin-left: 0px;   /* Move left/right */
 
+    --vs-text-margin-top: 25px;  /* ✅ Controls VS text position */
     --vs-text-margin-bottom: 15px; /* Adjust VS text spacing */
 
-    --bet-container-margin-top: 0px;  /* Adjust bet container position */
-    --bet-container-gap: 10px;        /* Adjust gap between "Bet: $" and input */
+    --bet-container-margin-top: 5px;  /* Adjust bet container position */
+    --bet-container-gap: 8px;         /* Adjust gap between "Bet: $" and input */
 
-    --win-button-margin-top: 70px;  /* Move win buttons up/down */
-    --win-button-gap: 20px;         /* Adjust space between win buttons */
+    --betting-container-margin-top: -15px;  /* Adjust betting section positioning */
+    --betting-container-gap: 10px;         /* Space between text and checkbox */
 
-    --odds-container-margin-top: 0px; /* Adjust odds section positioning */
-    --odds-container-gap: 10px;        /* Space between odds elements */
+    --simulate-button-margin-top: 20px;   /* Adjust Simulate Fight button position */
+   
 
-    --odd-text-padding-x: 30px;   /* Adjust padding inside the odds section */
+    --win-button-margin-top: 20px;   /* Move win buttons up/down */
+    --win-button-gap: 90px;          /* Adjust space between win buttons */
+
+    --odds-container-margin-top: 15px; /* Adjust odds section positioning */
+    --odds-container-gap: 5px;         /* Space between odds elements */
+
+    --result-container-margin-top: -20px; /* Adjust result positioning */
 }
 
-/* ===== Middle Section (VS, Bet, Buttons, Odds) ===== */
+/* ===== Middle Section (VS, Bet, Buttons, Odds, Results) ===== */
 .middle {
-    width: 20%;
+    width: 22%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: var(--middle-margin-top);
+    gap: 10px;  /* ✅ Ensures consistent spacing between components */
     margin-top: var(--middle-margin-top);
     margin-left: var(--middle-margin-left);
     position: relative;
 }
 
-/* VS Text */
+/* ✅ VS Text (Independent Movement) */
 .VS-text {
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: bold;
+    position: relative; /* ✅ Allows independent movement */
+    top: var(--vs-text-margin-top);  /* ✅ Move VS text up or down */
     margin-bottom: var(--vs-text-margin-bottom);
 }
 
@@ -94,13 +103,45 @@ main {
 /* Bet Input */
 .bet-box {
     padding: 10px;
-    width: 120px;
+    width: 80px;
     text-align: center;
     border-radius: 10px;
-    border: 1px solid #fff;
+    border: 1.5px solid #ffcc00;  /* ✅ Thinner golden border */
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
 }
+
+/* Betting Toggle Section */
+.betting-for-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--betting-container-gap);
+    margin-top: var(--betting-container-margin-top);
+}
+
+/* Betting Toggle Checkbox */
+#toggleSwitch {
+    width: 20px;
+    height: 20px;
+    accent-color: #ffcc00; /* ✅ Gold checkbox color */
+}
+
+/* ✅ Fix Simulate Fight Button Positioning */
+.simulate-button {
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #ffcc00;
+    background-color: rgba(255, 204, 0, 0.9);
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+
+    position: relative;  /* ✅ Ensures independent movement */
+    top: var(--simulate-button-margin-top);  /* ✅ Moves freely */
+}
+
 
 /* Win Buttons */
 .win-button-container {
@@ -111,14 +152,13 @@ main {
 }
 
 .win-button {
-    padding: 12px 18px;
-    font-size: 16px;
+    padding: 10px 16px;
+    font-size: 14px;
     cursor: pointer;
     border: 2px solid #ffcc00;
     background-color: rgba(255, 204, 0, 0.8);
     color: black;
     font-weight: bold;
-    transition: background-color 0.2s ease-in-out, transform 0.1s;
     border-radius: 10px;
 }
 
@@ -143,18 +183,32 @@ main {
 }
 
 /* Individual Odds Text */
-.odd-text-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px var(--odd-text-padding-x);
-}
-
-/* Individual Odds Text */
 .odd-text {
     font-size: 1rem;
     color: #fff;
-    width: 50%;
+    text-align: center;
+}
+
+/* Results Section */
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: var(--result-container-margin-top);
+}
+
+/* Winner & Profit Styling */
+.winner-heading-text, .profit-heading-text {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.winner-person, .profit-value {
+    font-size: 1rem;
+    color: #ffcc00;
+    font-weight: bold;
 }
 
 
@@ -269,7 +323,7 @@ button:hover {
 
 /* Fighter Statistics Text Area (Fixed Size & No Resizing) */
 .fighter-details-text {
-    border: 1.5px solid #ffcc00;  /* ✅ Thinner golden border */
+    border: 1px solid #ffcc00;  /* ✅ Thinner golden border */
     height: 315px;   /* ✅ Fixed height */
     width: 200px;    /* ✅ Fixed width */
     background-color: rgba(255, 255, 255, 0.1);
@@ -283,7 +337,7 @@ button:hover {
     resize: none;
 
     /* ✅ Golden glow when focused */
-    outline: 1.5px solid #ffcc00;
+    outline: 1px solid #ffcc00;
     box-shadow: 0 0 5px rgba(255, 204, 0, 0.6);
 }
 
