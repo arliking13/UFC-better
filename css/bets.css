@@ -334,36 +334,40 @@ button:hover {
     gap: 20px;
 }
 
-/* Fighter Image - Default */
+/* Default Image Style */
 .fighter-details-container img {
     width: 220px;
     height: 335px;
     border-radius: 10px;
-    border: 1px solid #ffcc00;  /* ✅ Thin golden border */
+    border: 1px solid #ffcc00; /* ✅ Golden border */
     object-fit: cover;
     display: block;
     background-color: #ffffff; /* ✅ White background */
-    
-    /* ✅ Smooth Transition */
+
+    /* ✅ Smooth transition effect */
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
-/* ✅ Apply fade-out when the image source changes */
-.fighter-details-container img[data-new-img] {
+/* ✅ When the image changes, trigger animation */
+.fighter-details-container img[data-new-img]:not([src*="Male_Shadow.png"]) {
     opacity: 0;
-    animation: fadeIn 0.5s forwards; /* ✅ Smoothly fade in new image */
+    transform: scale(0.9); /* Shrink effect before transition */
+    animation: fadeInZoom 0.6s forwards; /* ✅ Smooth fade-in & zoom */
 }
 
-/* ✅ Keyframe Animation */
-@keyframes fadeIn {
-    from {
+/* ✅ Keyframe Animation for Smooth Fade-In and Scale Effect */
+@keyframes fadeInZoom {
+    0% {
         opacity: 0;
+        transform: scale(0.9); /* Start smaller */
     }
-    to {
+    100% {
         opacity: 1;
+        transform: scale(1); /* Zoom to normal size */
     }
 }
+
 
 
 
