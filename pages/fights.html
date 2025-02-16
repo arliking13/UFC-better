@@ -39,8 +39,8 @@
     </template>
 
     <script>
-        document.getElementById(".matches-text").textContent = "Matches: " + fights.length;
-        document.getElementById(".net-profit-text").textContent = "Net Profit: " + fights.length;
+        document.getElementById("matches-text").textContent = "Matches: " + fights.length;
+        document.getElementById("net-profit-text").textContent = "Net Profit: $" + parseFloat(user_data.net_profit).toFixed(2);
 
         if (fights) {
             const temp = document.getElementById("fights-template");
@@ -53,7 +53,7 @@
                 clone.querySelector(".fight-bar").id = i.toString();
                 clone.querySelector(".winner-name").textContent = f.winner;
                 clone.querySelector(".loser-name").textContent = f.winner == f.fighter1 ? f.fighter2 : f.fighter1;
-                clone.querySelector(".profit-value").textContent = "$" + f.profit;
+                clone.querySelector(".profit-value").textContent = "Profit: $" + f.profit;
                 clone.querySelector(".result-text").textContent = f.result;
                 container.appendChild(clone);
             }

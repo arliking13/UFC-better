@@ -38,7 +38,10 @@
         .profile-section img {
             margin-right: 10px;
         }
-
+        .profile-section span {
+            color: black;
+            margin-right: 10px;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -48,7 +51,7 @@
             <div class="profile-section">
                 <img id="nav-profile-avatar" alt="Profile Avatar" class="pixel-art-icon">
                 <span id="nav-profile-name"></span>
-                <a href="History.html">History</a>
+                <a href="fights.html">Fights</a>
                 <a href="Homepage.html">Home</a>
             </div>
         </nav>
@@ -61,7 +64,7 @@
             </div>
             <button onclick="getFighter('left')">Get</button>
             <div class="fighter-details-container">
-                <img src="../assets/Male_Shadow.png" id="fighter-details-img-left">
+                <img src="../assets/Male_Shadow.png" id="fighter-details-img-left" data-new-img>
                 <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-left"></textarea>
             </div>
         </section>
@@ -109,12 +112,14 @@
             </div>
             <button onclick="getFighter('right')">Get</button>
             <div class="fighter-details-container">
-                <img src="../assets/Male_Shadow.png" id="fighter-details-img-right">
+                <img src="../assets/Male_Shadow.png" id="fighter-details-img-right" data-new-img>
                 <textarea rows='7' cols='20' class="fighter-details-text" id="fighter-details-text-right"></textarea>
             </div>
 
         <script src="../js/script.js"></script>        
         <script>
+            document.getElementById("nav-profile-name").textContent = user_data.username;
+
             let temp_fighter_left = null;
             let temp_fighter_right = null;
 
@@ -253,7 +258,7 @@
                 document.getElementById("profit-value").textContent = "$" + profit;
                 document.getElementById("result-text").textContent = result;
 
-                fights.push(new Fight(temp_fighter_left['name'], temp_fighter_right['name'], side == "left" ? temp_fighter_left['name'] : temp_fighter_right['name'], result, profit));
+                fights.push(new Fight(temp_fighter_left['name'], temp_fighter_right['name'], side == "left" ? temp_fighter_left['name'] : temp_fighter_right['name'], result, bet_money, profit));
                 user_data.net_profit += profit;
             }
 
