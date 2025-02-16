@@ -260,7 +260,8 @@
                 document.getElementById("result-text").textContent = result;
 
                 fights.push(new Fight(temp_fighter_left['name'], temp_fighter_right['name'], side == "left" ? temp_fighter_left['name'] : temp_fighter_right['name'], result, bet_money, profit));
-                user_data.net_profit += profit;
+                user_data.net_profit = parseFloat(user_data.net_profit);
+                user_data.add(parseFloat(profit));
             }
 
             function generateResult(winner, loser) {

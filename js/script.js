@@ -11,6 +11,9 @@ class UserData {
         this.avatar_path = avatar_path;
         this.net_profit = net_profit;
     }
+    add(num) {
+        this.net_profit += num;
+    }
 }
 
 class Fight {
@@ -45,8 +48,8 @@ if (localStorage.getItem("fights")) {
 }
 
 
-//console.log(user_data);
-//console.log(fights);
+console.log(user_data);
+console.log(fights);
 
 window.addEventListener("beforeunload", function () {
     console.log("tab closing");
